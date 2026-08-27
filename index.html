@@ -7,12 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #242221;
-            --card-bg: #2d2a29;
-            --border-color: #3d3937;
-            --gold: #dfb97e;
-            --text-main: #f4f0eb;
-            --text-muted: #b8b2a7;
+            --bg-color: #fcfbfa;
+            --card-bg: #ffffff;
+            --border-color: #E6DFD5;
+            --gold: #C5A059;
+            --text-main: #2C2A29;
+            --text-muted: #6E6A66;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,9 +33,9 @@
             max-width: 600px;
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border-radius: 20px;
+            padding: 50px 35px;
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.08);
             position: relative;
         }
 
@@ -43,7 +43,7 @@
             position: absolute;
             top: 25px;
             right: 25px;
-            background: rgba(223, 185, 126, 0.15);
+            background: rgba(197, 160, 89, 0.1);
             border: 1px solid var(--gold);
             border-radius: 30px;
             padding: 6px 14px;
@@ -53,8 +53,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .music-bar:hover { background: rgba(223, 185, 126, 0.25); }
-        .music-bar span { font-size: 12px; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; }
+        .music-bar:hover { background: rgba(197, 160, 89, 0.2); }
+        .music-bar span { font-size: 12px; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; font-weight: 500; }
         .music-bar svg { width: 16px; height: 16px; fill: var(--gold); }
 
         .date-badge {
@@ -63,14 +63,16 @@
             text-transform: uppercase;
             color: var(--gold);
             margin-bottom: 15px;
+            font-weight: 500;
         }
 
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 44px;
+            font-size: 46px;
             font-weight: 500;
             letter-spacing: 2px;
             margin-bottom: 10px;
+            color: #1A1817;
         }
 
         .subtitle {
@@ -90,7 +92,7 @@
 
         .text-block {
             font-size: 15px;
-            line-height: 1.7;
+            line-height: 1.8;
             color: var(--text-muted);
             margin-bottom: 25px;
         }
@@ -100,9 +102,9 @@
             flex-direction: column;
             gap: 15px;
             margin: 30px 0;
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 10px;
+            background: #F9F7F5;
+            padding: 24px;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
             text-align: left;
         }
@@ -114,21 +116,22 @@
             text-transform: uppercase;
             color: var(--gold);
             margin-bottom: 4px;
+            font-weight: 500;
         }
 
-        .detail-item p { font-size: 15px; color: var(--text-main); }
+        .detail-item p { font-size: 15px; color: var(--text-main); font-weight: 500; }
 
         .note-box {
-            background: rgba(223, 185, 126, 0.08);
+            background: rgba(197, 160, 89, 0.06);
             border-left: 3px solid var(--gold);
             padding: 18px;
             margin: 25px 0;
             text-align: left;
             font-size: 14px;
             line-height: 1.6;
-            color: #d9d4cc;
+            color: #4A4542;
             font-style: italic;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 10px 10px 0;
         }
 
         /* Таймер */
@@ -139,26 +142,28 @@
             margin: 30px 0;
         }
         .countdown-box {
-            background: rgba(0,0,0,0.3);
+            background: #F9F7F5;
             border: 1px solid var(--border-color);
-            padding: 10px 15px;
-            border-radius: 8px;
+            padding: 12px 15px;
+            border-radius: 10px;
             text-align: center;
-            min-width: 60px;
+            min-width: 65px;
         }
         .countdown-number {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
         }
         .countdown-label {
             font-size: 10px;
             text-transform: uppercase;
             color: var(--text-muted);
             margin-top: 4px;
+            letter-spacing: 1px;
         }
 
-        /* Форма без регистраций */
+        /* Форма */
         .rsvp-form {
             margin-top: 35px;
             padding-top: 30px;
@@ -168,68 +173,70 @@
 
         .rsvp-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            color: var(--gold);
-            margin-bottom: 15px;
+            font-size: 24px;
+            color: var(--text-main);
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .form-group { margin-bottom: 15px; }
+        .form-group { margin-bottom: 20px; }
 
         .form-group label {
             display: block;
             font-size: 12px;
             letter-spacing: 1px;
             color: var(--text-muted);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
-            background: #211e1d;
+            padding: 14px 16px;
+            background: #F9F7F5;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 10px;
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
             outline: none;
             transition: border-color 0.3s;
         }
-        .form-control:focus { border-color: var(--gold); }
+        .form-control:focus { border-color: var(--gold); background: #ffffff; }
 
-        .radio-group { display: flex; gap: 20px; margin-top: 8px; }
-        .radio-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-main); }
+        .radio-group { display: flex; gap: 25px; margin-top: 10px; }
+        .radio-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-main); font-weight: 500; }
 
         .submit-btn {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background-color: var(--gold);
-            color: #242221;
+            color: #ffffff;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             font-size: 14px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
-            margin-top: 15px;
-            transition: opacity 0.3s;
+            margin-top: 10px;
+            transition: opacity 0.3s, transform 0.2s;
         }
-        .submit-btn:hover { opacity: 0.9; }
+        .submit-btn:hover { opacity: 0.95; transform: translateY(-1px); }
 
         .success-msg {
             display: none;
-            background: rgba(76, 175, 80, 0.15);
-            border: 1px solid #4CAF50;
-            color: #81C784;
-            padding: 15px;
-            border-radius: 8px;
+            background: rgba(46, 125, 50, 0.1);
+            border: 1px solid #2E7D32;
+            color: #2E7D32;
+            padding: 18px;
+            border-radius: 10px;
             text-align: center;
             margin-top: 15px;
             font-size: 14px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -241,7 +248,7 @@
             <svg id="musicIcon" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
             <span id="musicText">Музыка</span>
         </div>
-        <audio id="bgAudio" loop>
+        <audio id="bgAudio" loop preload="auto">
             <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf7f6.mp3?filename=romantic-guitars-112140.mp3" type="audio/mpeg">
         </audio>
 
@@ -252,7 +259,7 @@
         <div class="divider"></div>
 
         <div class="text-block">
-            Привет! Совсем скоро состоится важное для нас событие — наша роспись. Мы решили отказаться от классического пышного торжества, но нам очень хочется провести этот день в окружении близких людей, с которыми тепло, уютно и весело.
+            Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного торжества, но нам безумно важно провести этот день в окружении близких людей, с которыми тепло, уютно и радостно.
         </div>
 
         <div class="details-grid">
@@ -261,12 +268,8 @@
                 <p>10 октября 2026</p>
             </div>
             <div class="detail-item">
-                <span>Время сбора</span>
-                <p>с 16:00 (официальная часть в ЗАГСе пройдет днем вдвоем)</p>
-            </div>
-            <div class="detail-item">
-                <span>Место</span>
-                <p>Название ресторана / бара</p>
+                <span>Время и место сбора</span>
+                <p>Сбор гостей в 16:00 по адресу: [Укажи улицу, дом, кв.]</p>
             </div>
         </div>
 
@@ -282,57 +285,78 @@
             Небольшая просьба насчет атмосферы: мы бы хотели обойтись без криков «горько». Поцелуй — это искреннее проявление чувств, а не ритуал по приказу. Давайте просто наслаждаться общением, вкусной едой и нашей компанией!
         </div>
 
-        <!-- Форма отправки ответов прямо в Telegram (никаких регистраций для гостей!) -->
+        <!-- Форма отправки ответов в Telegram -->
         <div class="rsvp-form">
             <div class="rsvp-title">Подтверждение присутствия</div>
             <form id="rsvpForm">
                 <div class="form-group">
-                    <label for="name">Твое имя</label>
-                    <input type="text" id="name" name="name" class="form-control" required placeholder="Например, Саша">
+                    <label for="name">Твое имя и фамилия</label>
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="Например, Анна Смирнова">
                 </div>
 
                 <div class="form-group">
                     <label>Сможешь прийти?</label>
                     <div class="radio-group">
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="Буду с удовольствием!" required> Буду!
+                            <input type="radio" name="attendance" value="Буду с удовольствием!" required> С удовольствием буду
                         </label>
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="К сожалению, не смогу"> Не смогу
+                            <input type="radio" name="attendance" value="К сожалению, не смогу"> К сожалению, не смогу
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="wish">Пара слов / пожелание (необязательно)</label>
-                    <input type="text" id="wish" name="wish" class="form-control" placeholder="Жду не дождусь">
+                    <input type="text" id="wish" name="wish" class="form-control" placeholder="Ждем с нетерпением">
                 </div>
 
-                <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
+                <button type="submit" class="submit-btn" id="submitBtn">Подтвердить участие</button>
             </form>
-            <div id="successMsg" class="success-msg">Спасибо! Твой ответ успешно улетел организаторам.</div>
+            <div id="successMsg" class="success-msg">Спасибо! Твой ответ успешно отправлен. Мы ждем тебя!</div>
         </div>
     </div>
 
     <script>
-        // Плеер
+        // Автозапуск музыки при открытии сайта (с поддержкой политик браузеров)
         const audio = document.getElementById('bgAudio');
         const musicToggle = document.getElementById('musicToggle');
         const musicText = document.getElementById('musicText');
         let isPlaying = false;
+
+        function playMusic() {
+            audio.play().then(() => {
+                isPlaying = true;
+                musicText.innerText = "Пауза";
+                musicToggle.style.opacity = "1";
+            }).catch(() => {
+                // Если браузер заблокировал автозапуск, музыка включится по первому клику в любом месте экрана
+                document.addEventListener('click', function initAudio() {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        musicText.innerText = "Пауза";
+                        musicToggle.style.opacity = "1";
+                    });
+                    document.removeEventListener('click', initAudio);
+                }, { once: true });
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', playMusic);
 
         function toggleMusic() {
             if (isPlaying) {
                 audio.pause();
                 musicText.innerText = "Музыка";
                 musicToggle.style.opacity = "0.7";
+                isPlaying = false;
             } else {
                 audio.play().then(() => {
                     musicText.innerText = "Пауза";
                     musicToggle.style.opacity = "1";
-                }).catch(e => console.log("Audio blocked"));
+                    isPlaying = true;
+                });
             }
-            isPlaying = !isPlaying;
         }
 
         // Таймер до 10.10.2026
@@ -348,10 +372,9 @@
             }
         }, 1000);
 
-        // Отправка данных без сервера через публичный API Telegram-бота (чтобы тебе падало в личку)
-        // Замени TELEGRAM_BOT_TOKEN и CHAT_ID на свои, когда создашь бота (или я могу подсказать, как сделать за 30 секунд)
-        const TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"; 
-        const CHAT_ID = "YOUR_CHAT_ID_HERE";
+        // Настройки отправки в Telegram (исправлена ошибка кода)
+        const TELEGRAM_BOT_TOKEN = "8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ"; 
+        const CHAT_ID = "867899349";
 
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -365,16 +388,7 @@
             btn.innerText = "Отправка...";
             btn.disabled = true;
 
-            // Если бот еще не настроен, просто показываем успех для теста
-            if (TELEGRAM_BOT_TOKEN === "8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ") {
-                setTimeout(() => {
-                    document.getElementById('rsvpForm').style.display = 'none';
-                    document.getElementById('successMsg').style.display = 'block';
-                }, 500);
-                return;
-            }
-
-            fetch(`https://api.telegram.org/bot${867899349}/sendMessage`, {
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -387,12 +401,12 @@
                     document.getElementById('successMsg').style.display = 'block';
                 } else {
                     alert('Ошибка отправки. Попробуй еще раз.');
-                    btn.innerText = "Отправить ответ";
+                    btn.innerText = "Подтвердить участие";
                     btn.disabled = false;
                 }
             }).catch(() => {
-                alert('Ошибка сети.');
-                btn.innerText = "Отправить ответ";
+                alert('Ошибка сети. Проверь подключение.');
+                btn.innerText = "Подтвердить участие";
                 btn.disabled = false;
             });
         });
