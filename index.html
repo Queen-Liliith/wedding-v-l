@@ -366,7 +366,7 @@
             btn.disabled = true;
 
             // Если бот еще не настроен, просто показываем успех для теста
-            if (TELEGRAM_BOT_TOKEN === "YOUR_BOT_TOKEN_HERE") {
+            if (TELEGRAM_BOT_TOKEN === "8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ") {
                 setTimeout(() => {
                     document.getElementById('rsvpForm').style.display = 'none';
                     document.getElementById('successMsg').style.display = 'block';
@@ -374,7 +374,7 @@
                 return;
             }
 
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            fetch(`https://api.telegram.org/bot${867899349}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
