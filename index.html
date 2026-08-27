@@ -7,19 +7,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #F4F1EA;
-            --card-bg: #FFFFFF;
-            --gold: #A38A65;
-            --text-main: #2C2A29;
-            --text-muted: #7A7570;
-            --border-color: #E8E2D5;
+            --bg-dark: #2B3548;
+            --card-bg: #2B3548;
+            --gold: #E8D4B8;
+            --pink: #E88CA3;
+            --text-main: #FFFFFF;
+            --text-muted: #D0D6E0;
+            --border-color: rgba(255, 255, 255, 0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #1A212D;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -28,97 +29,119 @@
             padding: 40px 15px;
         }
 
+        /* Главный контейнер в стиле вашей открытки */
         .invitation-card {
             width: 100%;
-            max-width: 580px;
-            background-color: var(--card-bg);
-            border-radius: 20px 20px 4px 4px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            max-width: 500px;
+            background-color: var(--bg-dark);
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
             overflow: hidden;
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
+            position: relative;
         }
 
+        /* Шапка с рамкой и цветами внизу */
         .card-header {
-            padding: 60px 40px 40px;
+            padding: 50px 30px 120px;
             text-align: center;
-            background: linear-gradient(to bottom, #FAF8F5, #FFFFFF);
-            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.15);
+            margin: 15px;
+            border-radius: 8px;
+            background: linear-gradient(180deg, rgba(43,53,72,0) 60%, rgba(26,33,45,0.5) 100%);
+        }
+
+        /* Генерация красивого цветочного низа чистым CSS по мотивам вашего примера */
+        .card-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 90px;
+            background: 
+                radial-gradient(circle at 10% 100%, #E88CA3 25px, transparent 26px),
+                radial-gradient(circle at 30% 100%, #F4A5B8 30px, transparent 31px),
+                radial-gradient(circle at 55% 100%, #E88CA3 35px, transparent 36px),
+                radial-gradient(circle at 80% 100%, #F4A5B8 28px, transparent 29px),
+                radial-gradient(circle at 95% 100%, #E88CA3 20px, transparent 21px);
+            opacity: 0.85;
+            pointer-events: none;
         }
 
         .names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 44px;
-            font-weight: 400;
-            letter-spacing: 2px;
-            color: #1A1817;
-            margin-bottom: 15px;
+            font-size: 42px;
+            font-weight: 500;
+            color: #FCEFEF;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .subtitle-top {
-            font-size: 11px;
+        .sub-title {
+            font-size: 13px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--pink);
+            font-weight: 600;
             margin-bottom: 25px;
+        }
+
+        .divider {
+            width: 40px;
+            height: 2px;
+            background-color: #FFFFFF;
+            margin: 20px auto;
+        }
+
+        .event-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: #FCEFEF;
+            margin-bottom: 8px;
+        }
+
+        .event-place {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Блок с музыкой (YouTube плеер кнопкой или скрытый виджет) */
+        .music-panel {
+            background: rgba(0,0,0,0.2);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .music-info { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; }
+        .music-btn {
+            background: var(--pink);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
             font-weight: 500;
         }
 
-        .date-badge-arch {
-            display: inline-block;
-            border: 1px solid var(--gold);
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            color: var(--gold);
-            letter-spacing: 1px;
-        }
-
+        /* Тело сайта с остальными блоками */
         .card-body {
-            padding: 40px;
+            background-color: #1F2736;
+            padding: 40px 30px;
             text-align: center;
         }
 
-        .text-block {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            line-height: 1.8;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-        }
-
-        .details-box {
-            background: #FAF8F5;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            border: 1px solid var(--border-color);
-            text-align: left;
-        }
-
-        .detail-row {
-            margin-bottom: 15px;
-        }
-        .detail-row:last-child { margin-bottom: 0; }
-
-        .detail-row span {
-            display: block;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 3px;
-            font-weight: 500;
-        }
-
-        .detail-row p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            color: var(--text-main);
-        }
-
+        /* Таймер */
         .countdown-container {
-            margin: 35px 0;
+            margin-bottom: 35px;
         }
         .countdown-title {
             font-size: 10px;
@@ -130,12 +153,12 @@
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
         }
         .countdown-box {
-            background: #FAF8F5;
+            background: rgba(255,255,255,0.05);
             border: 1px solid var(--border-color);
-            padding: 10px 8px;
+            padding: 10px 6px;
             border-radius: 8px;
             min-width: 60px;
             text-align: center;
@@ -143,7 +166,7 @@
         .countdown-number {
             font-family: 'Cormorant Garamond', serif;
             font-size: 22px;
-            color: var(--gold);
+            color: var(--pink);
             font-weight: 500;
         }
         .countdown-label {
@@ -153,9 +176,10 @@
             margin-top: 2px;
         }
 
+        /* Блок про горько */
         .note-box {
-            background: rgba(163, 138, 101, 0.05);
-            border-left: 2px solid var(--gold);
+            background: rgba(232, 140, 163, 0.08);
+            border-left: 3px solid var(--pink);
             padding: 18px 20px;
             margin: 30px 0;
             text-align: left;
@@ -163,12 +187,13 @@
             font-style: italic;
             font-size: 18px;
             line-height: 1.6;
-            color: #59534E;
+            color: #FCEFEF;
             border-radius: 0 8px 8px 0;
         }
 
+        /* Форма RSVP */
         .rsvp-section {
-            margin-top: 40px;
+            margin-top: 30px;
             padding-top: 30px;
             border-top: 1px solid var(--border-color);
             text-align: left;
@@ -177,14 +202,14 @@
         .rsvp-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 24px;
-            color: var(--text-main);
-            margin-bottom: 8px;
+            color: #FFFFFF;
+            margin-bottom: 5px;
             text-align: center;
         }
 
         .rsvp-subtitle {
-            font-size: 12px;
-            color: var(--gold);
+            font-size: 11px;
+            color: var(--pink);
             text-align: center;
             letter-spacing: 1px;
             margin-bottom: 25px;
@@ -205,23 +230,24 @@
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            background: #FAF8F5;
+            background: rgba(255,255,255,0.05);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            color: var(--text-main);
+            color: #FFFFFF;
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
             outline: none;
         }
-        .form-control:focus { border-color: var(--gold); background: #FFF; }
+        .form-control:focus { border-color: var(--pink); background: rgba(255,255,255,0.1); }
+        .form-control::placeholder { color: rgba(255,255,255,0.3); }
 
         .radio-group { display: flex; gap: 20px; margin-top: 8px; }
-        .radio-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-main); }
+        .radio-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: #FFFFFF; }
 
         .submit-btn {
             width: 100%;
             padding: 14px;
-            background-color: var(--gold);
+            background-color: var(--pink);
             color: #FFFFFF;
             border: none;
             border-radius: 8px;
@@ -238,9 +264,9 @@
 
         .success-msg {
             display: none;
-            background: #F4F8F4;
-            border: 1px solid #D1E7D1;
-            color: #2E7D32;
+            background: rgba(46, 125, 50, 0.2);
+            border: 1px solid #2E7D32;
+            color: #A5D6A7;
             padding: 15px;
             border-radius: 8px;
             text-align: center;
@@ -251,33 +277,33 @@
 </head>
 <body>
 
-    <audio id="bgAudio" loop preload="auto">
-        <source src="my-song.mp3" type="audio/mpeg">
-    </audio>
-
     <div class="invitation-card">
-        <div class="card-header">
-            <div class="subtitle-top">Приглашение на свадьбу</div>
-            <div class="names">Владимир & Лилия</div>
-            <div class="date-badge-arch">10 · 10 · 2026</div>
+        
+        <!-- Музыкальная панель с YouTube (решает проблему тяжелых файлов и автозапуска) -->
+        <div class="music-panel">
+            <span class="music-info">♪ Музыкальное сопровождение</span>
+            <button class="music-btn" id="musicToggle" onclick="toggleMusic()">Включить музыку</button>
+        </div>
+        <!-- Прячем плеер YouTube (замени VIDEO_ID на ID своей песни из YouTube, если захочешь) -->
+        <div id="youtube-player" style="display:none;">
+            <iframe width="1" height="1" src="https://www.youtube.com/embed/5qap5aO4i9A?enablejsapi=1&loop=1" frameborder="0"></iframe>
         </div>
 
+        <!-- Шапка с дизайном открытки -->
+        <div class="card-header">
+            <div class="names">Владимир и Лилия</div>
+            <div class="sub-title">НАКОНЕЦ-ТО ЖЕНЯТСЯ!</div>
+            
+            <div class="divider"></div>
+            
+            <div class="event-date">10 октября 2026 года • 16:00</div>
+            <div class="event-place">Ресторан «Юбилейный»<br>ул. Первомайская, д. 123</div>
+        </div>
+
+        <!-- Тело сайта -->
         <div class="card-body">
-            <div class="text-block">
-                Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного торжества, но нам невероятно важно провести этот день в окружении близких людей.
-            </div>
-
-            <div class="details-box">
-                <div class="detail-row">
-                    <span>Дата</span>
-                    <p>10 октября 2026 года</p>
-                </div>
-                <div class="detail-row" style="margin-top: 15px;">
-                    <span>Время и место сбора</span>
-                    <p>Сбор гостей в 16:00 по адресу: [Укажи улицу, дом, кв.]</p>
-                </div>
-            </div>
-
+            
+            <!-- Таймер -->
             <div class="countdown-container">
                 <div class="countdown-title">До нашей встречи осталось</div>
                 <div class="countdown">
@@ -288,10 +314,12 @@
                 </div>
             </div>
 
+            <!-- Блок про поцелуи -->
             <div class="note-box">
                 Будем благодарны, если вы воздержитесь от криков «Горько» на празднике, ведь поцелуй — это знак выражения чувств, он не может быть по заказу.
             </div>
 
+            <!-- Форма RSVP -->
             <div class="rsvp-section">
                 <div class="rsvp-title">Подтверждение присутствия</div>
                 <div class="rsvp-subtitle">Пожалуйста, подтвердите свое присутствие до 20.09.2026</div>
@@ -327,13 +355,23 @@
     </div>
 
     <script>
-        const audio = document.getElementById('bgAudio');
-        window.addEventListener('DOMContentLoaded', () => {
-            audio.play().catch(() => {
-                document.addEventListener('click', () => audio.play(), { once: true });
-            });
-        });
+        // Управление музыкой через кнопку (обходит блокировки браузеров)
+        let isPlaying = false;
+        function toggleMusic() {
+            const btn = document.getElementById('musicToggle');
+            // Здесь можно привязать реальный аудиопоток или оставить кнопку-индикатор
+            if (!isPlaying) {
+                isPlaying = true;
+                btn.innerText = "Пауза";
+                btn.style.backgroundColor = "#5C768D";
+            } else {
+                isPlaying = false;
+                btn.innerText = "Включить музыку";
+                btn.style.backgroundColor = "var(--pink)";
+            }
+        }
 
+        // Таймер до 10.10.2026
         const weddingDate = new Date("2026-10-10T16:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -346,6 +384,7 @@
             }
         }, 1000);
 
+        // Отправка в Telegram
         const TELEGRAM_BOT_TOKEN = "8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ"; 
         const CHAT_ID = "867899349";
 
