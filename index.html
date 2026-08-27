@@ -8,8 +8,6 @@
     <style>
         :root {
             --bg-dark: #2B3548;
-            --card-bg: #2B3548;
-            --gold: #E8D4B8;
             --pink: #E88CA3;
             --text-main: #FFFFFF;
             --text-muted: #D0D6E0;
@@ -29,7 +27,7 @@
             padding: 40px 15px;
         }
 
-        /* Главный контейнер в стиле вашей открытки */
+        /* Главная открытка (Первый экран) */
         .invitation-card {
             width: 100%;
             max-width: 500px;
@@ -39,9 +37,9 @@
             overflow: hidden;
             border: 2px solid var(--border-color);
             position: relative;
+            margin-bottom: 30px;
         }
 
-        /* Шапка с рамкой и цветами внизу */
         .card-header {
             padding: 50px 30px 120px;
             text-align: center;
@@ -52,7 +50,7 @@
             background: linear-gradient(180deg, rgba(43,53,72,0) 60%, rgba(26,33,45,0.5) 100%);
         }
 
-        /* Генерация красивого цветочного низа чистым CSS по мотивам вашего примера */
+        /* Цветочный низ чистым CSS по мотивам примера */
         .card-header::after {
             content: "";
             position: absolute;
@@ -76,7 +74,7 @@
             font-weight: 500;
             color: #FCEFEF;
             line-height: 1.2;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -107,34 +105,26 @@
             font-size: 14px;
             color: var(--text-muted);
             line-height: 1.5;
+            margin-bottom: 25px;
         }
 
-        /* Блок с музыкой (YouTube плеер кнопкой или скрытый виджет) */
-        .music-panel {
-            background: rgba(0,0,0,0.2);
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .music-info { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; }
-        .music-btn {
-            background: var(--pink);
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            font-weight: 500;
+        .intro-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            line-height: 1.6;
+            color: #E2E8F0;
+            font-style: italic;
+            padding: 0 10px;
         }
 
-        /* Тело сайта с остальными блоками */
-        .card-body {
+        /* Второй блок (Вторая страница: Таймер, Горько, Форма) */
+        .content-card {
+            width: 100%;
+            max-width: 500px;
             background-color: #1F2736;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
             padding: 40px 30px;
             text-align: center;
         }
@@ -277,19 +267,13 @@
 </head>
 <body>
 
-    <div class="invitation-card">
-        
-        <!-- Музыкальная панель с YouTube (решает проблему тяжелых файлов и автозапуска) -->
-        <div class="music-panel">
-            <span class="music-info">♪ Музыкальное сопровождение</span>
-            <button class="music-btn" id="musicToggle" onclick="toggleMusic()">Включить музыку</button>
-        </div>
-        <!-- Прячем плеер YouTube (замени VIDEO_ID на ID своей песни из YouTube, если захочешь) -->
-        <div id="youtube-player" style="display:none;">
-            <iframe width="1" height="1" src="https://www.youtube.com/embed/5qap5aO4i9A?enablejsapi=1&loop=1" frameborder="0"></iframe>
-        </div>
+    <!-- Фоновая музыка с твоего YouTube (встроена невидимо и играет при открытии) -->
+    <div style="position: absolute; width: 0; height: 0; overflow: hidden; opacity: 0; pointer-events: none;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/nxfHXrzddMY?si=mXNf2Gky9po8C33m&autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
 
-        <!-- Шапка с дизайном открытки -->
+    <!-- Первый экран: Открытка с именами и приглашением -->
+    <div class="invitation-card">
         <div class="card-header">
             <div class="names">Владимир и Лилия</div>
             <div class="sub-title">НАКОНЕЦ-ТО ЖЕНЯТСЯ!</div>
@@ -298,79 +282,67 @@
             
             <div class="event-date">10 октября 2026 года • 16:00</div>
             <div class="event-place">Ресторан «Юбилейный»<br>ул. Первомайская, д. 123</div>
-        </div>
-
-        <!-- Тело сайта -->
-        <div class="card-body">
             
-            <!-- Таймер -->
-            <div class="countdown-container">
-                <div class="countdown-title">До нашей встречи осталось</div>
-                <div class="countdown">
-                    <div class="countdown-box"><div class="countdown-number" id="days">00</div><div class="countdown-label">дней</div></div>
-                    <div class="countdown-box"><div class="countdown-number" id="hours">00</div><div class="countdown-label">часов</div></div>
-                    <div class="countdown-box"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">минут</div></div>
-                    <div class="countdown-box"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">секунд</div></div>
-                </div>
-            </div>
-
-            <!-- Блок про поцелуи -->
-            <div class="note-box">
-                Будем благодарны, если вы воздержитесь от криков «Горько» на празднике, ведь поцелуй — это знак выражения чувств, он не может быть по заказу.
-            </div>
-
-            <!-- Форма RSVP -->
-            <div class="rsvp-section">
-                <div class="rsvp-title">Подтверждение присутствия</div>
-                <div class="rsvp-subtitle">Пожалуйста, подтвердите свое присутствие до 20.09.2026</div>
-                
-                <form id="rsvpForm">
-                    <div class="form-group">
-                        <label for="name">Ваши Имя и Фамилия</label>
-                        <input type="text" id="name" name="name" class="form-control" required placeholder="Например, Анна Смирнова">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Сможете ли вы прийти?</label>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="attendance" value="Буду с удовольствием!" required> С удовольствием
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="attendance" value="К сожалению, не смогу"> Не смогу
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="wish">Пожелания или комментарий</label>
-                        <input type="text" id="wish" name="wish" class="form-control" placeholder="Пара слов для нас">
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
-                </form>
-                <div id="successMsg" class="success-msg">Спасибо! Ваш ответ успешно отправлен. Ждем вас!</div>
+            <div class="intro-text">
+                Приглашение для самых близких.<br><br>
+                Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного торжества, но нам невероятно важно провести этот день в окружении людей, с которыми тепло, уютно и радостно.
             </div>
         </div>
     </div>
 
-    <script>
-        // Управление музыкой через кнопку (обходит блокировки браузеров)
-        let isPlaying = false;
-        function toggleMusic() {
-            const btn = document.getElementById('musicToggle');
-            // Здесь можно привязать реальный аудиопоток или оставить кнопку-индикатор
-            if (!isPlaying) {
-                isPlaying = true;
-                btn.innerText = "Пауза";
-                btn.style.backgroundColor = "#5C768D";
-            } else {
-                isPlaying = false;
-                btn.innerText = "Включить музыку";
-                btn.style.backgroundColor = "var(--pink)";
-            }
-        }
+    <!-- Второй блок: Таймер, Горько и Форма -->
+    <div class="content-card">
+        <!-- Таймер -->
+        <div class="countdown-container">
+            <div class="countdown-title">До нашей встречи осталось</div>
+            <div class="countdown">
+                <div class="countdown-box"><div class="countdown-number" id="days">00</div><div class="countdown-label">дней</div></div>
+                <div class="countdown-box"><div class="countdown-number" id="hours">00</div><div class="countdown-label">часов</div></div>
+                <div class="countdown-box"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">минут</div></div>
+                <div class="countdown-box"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">секунд</div></div>
+            </div>
+        </div>
 
+        <!-- Блок про поцелуи -->
+        <div class="note-box">
+            Будем благодарны, если вы воздержитесь от криков «Горько» на празднике, ведь поцелуй — это знак выражения чувств, он не может быть по заказу.
+        </div>
+
+        <!-- Форма RSVP -->
+        <div class="rsvp-section">
+            <div class="rsvp-title">Подтверждение присутствия</div>
+            <div class="rsvp-subtitle">Пожалуйста, подтвердите свое присутствие до 20.09.2026</div>
+            
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="name">Ваши Имя и Фамилия</label>
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="Например, Анна Смирнова">
+                </div>
+
+                <div class="form-group">
+                    <label>Сможете ли вы прийти?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="Буду с удовольствием!" required> С удовольствием
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="К сожалению, не смогу"> Не смогу
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wish">Пожелания или комментарий</label>
+                    <input type="text" id="wish" name="wish" class="form-control" placeholder="Пара слов для нас">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
+            </form>
+            <div id="successMsg" class="success-msg">Спасибо! Ваш ответ успешно отправлен. Ждем вас!</div>
+        </div>
+    </div>
+
+    <script>
         // Таймер до 10.10.2026
         const weddingDate = new Date("2026-10-10T16:00:00").getTime();
         setInterval(() => {
