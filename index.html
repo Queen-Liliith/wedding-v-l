@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --pink: #F4A5B8;
+            --pink: #D48398;
             --text-main: #FFFFFF;
             --text-muted: #E2E8F0;
         }
@@ -25,41 +25,69 @@
             padding: 40px 15px;
         }
 
-        /* Общий стиль карточек с фоном из Pinterest */
-        .invitation-card, .content-card {
+        /* Кнопка управления музыкой в углу */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(26, 33, 45, 0.85);
+            border: 1px solid var(--pink);
+            color: #FFF;
+            padding: 10px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: 1px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        .music-control:hover { background: rgba(212, 131, 152, 0.3); }
+
+        /* Первый экран: Полная картинка из Pinterest без обрезки */
+        .invitation-card {
             width: 100%;
             max-width: 500px;
+            min-height: 85vh;
             background-image: url('https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg');
-            background-size: cover;
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
+            background-color: #151A23; /* Фоновый цвет по бокам для гармонии */
             border-radius: 12px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             overflow: hidden;
             position: relative;
             margin-bottom: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* Затемнение фона поверх картинки, чтобы текст читался идеально */
-        .invitation-card::before, .content-card::before {
+        /* Мягкое затемнение поверх картинки для читаемости текста */
+        .invitation-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(30, 38, 52, 0.78);
+            background: rgba(20, 26, 36, 0.65);
             z-index: 1;
         }
 
-        .card-header, .content-inner {
+        .card-header {
             position: relative;
             z-index: 2;
-        }
-
-        .card-header {
             padding: 50px 30px;
             text-align: center;
+            margin: 20px;
             border: 1px solid rgba(255,255,255,0.15);
-            margin: 15px;
             border-radius: 8px;
+            background: rgba(20, 26, 36, 0.4);
+            backdrop-filter: blur(3px);
         }
 
         .names {
@@ -111,7 +139,19 @@
             padding: 0 10px;
         }
 
-        /* Второй блок */
+        /* Второй блок: чистый цвет без цветов и узоров */
+        .content-card {
+            width: 100%;
+            max-width: 500px;
+            background-color: #1F2937;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .content-inner {
             padding: 40px 30px;
             text-align: center;
@@ -134,8 +174,8 @@
             gap: 10px;
         }
         .countdown-box {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.15);
             padding: 10px 6px;
             border-radius: 8px;
             min-width: 60px;
@@ -156,7 +196,7 @@
 
         /* Блок про поцелуи */
         .note-box {
-            background: rgba(232, 140, 163, 0.15);
+            background: rgba(212, 131, 152, 0.1);
             border-left: 3px solid var(--pink);
             padding: 18px 20px;
             margin: 30px 0;
@@ -173,7 +213,7 @@
         .rsvp-section {
             margin-top: 30px;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            border-top: 1px solid rgba(255,255,255,0.1);
             text-align: left;
         }
 
@@ -208,15 +248,15 @@
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 8px;
             color: #FFFFFF;
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
             outline: none;
         }
-        .form-control:focus { border-color: var(--pink); background: rgba(0,0,0,0.5); }
+        .form-control:focus { border-color: var(--pink); background: rgba(0,0,0,0.4); }
         .form-control::placeholder { color: rgba(255,255,255,0.4); }
 
         .radio-group { display: flex; gap: 20px; margin-top: 8px; }
@@ -255,12 +295,17 @@
 </head>
 <body>
 
-    <!-- Скрытый плеер из твоего альбома YouTube Music для автозапуска при открытии -->
-    <div style="position: absolute; width: 0; height: 0; overflow: hidden; opacity: 0; pointer-events: none;">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/nxfHXrzddMY?autoplay=1&loop=1&playlist=nxfHXrzddMY" title="YouTube music player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    <!-- Аудио плеер -->
+    <audio id="bgMusic" loop>
+        <source src="https://drive.google.com/uc?export=download&id=1AM-yLxqum4gRL7OrGo7DYeemyN6KCfB7" type="audio/mpeg">
+    </audio>
 
-    <!-- Первый экран: Твоя картинка как фон с текстом приглашения -->
+    <!-- Кнопка управления музыкой -->
+    <button class="music-control" id="musicBtn" onclick="toggleMusic()">
+        🎵 <span id="musicText">Включить музыку</span>
+    </button>
+
+    <!-- Первый экран: полная картинка без обрезки -->
     <div class="invitation-card">
         <div class="card-header">
             <div class="names">Владимир и Лилия</div>
@@ -278,7 +323,7 @@
         </div>
     </div>
 
-    <!-- Второй блок: Твоя картинка как фон для таймера, горько и формы -->
+    <!-- Второй блок: чистый цвет без цветов -->
     <div class="content-card">
         <div class="content-inner">
             <!-- Таймер -->
@@ -333,7 +378,28 @@
     </div>
 
     <script>
-        // Таймер до 10.10.2026
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        const musicText = document.getElementById('musicText');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicText.innerText = "Включить музыку";
+                musicBtn.style.borderColor = "var(--pink)";
+            } else {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicText.innerText = "Пауза";
+                    musicBtn.style.borderColor = "#4CAF50";
+                }).catch(e => {
+                    console.log("Ошибка воспроизведения:", e);
+                });
+            }
+            isPlaying = !isPlaying;
+        }
+
         const weddingDate = new Date("2026-10-10T16:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -346,7 +412,6 @@
             }
         }, 1000);
 
-        // Отправка в Telegram
         const TELEGRAM_BOT_TOKEN = "8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ"; 
         const CHAT_ID = "867899349";
 
@@ -354,7 +419,7 @@
             e.preventDefault();
             const name = document.getElementById('name').value;
             const attendance = document.querySelector('input[name="attendance"]:checked').value;
-            const wish = document.getElementById('wish'].value || "Без комментариев";
+            const wish = document.getElementById('wish').value || "Без комментариев";
 
             const message = `💍 Новый ответ на свадьбу!\n\n👤 Имя: ${name}\n📌 Ответ: ${attendance}\n💬 Пожелание: ${wish}`;
             
