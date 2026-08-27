@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 · 10 · 2026 — Мы женимся</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Владимир & Лилия — 10.10.2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #F7F5F0;
-            --text-main: #2b2927;
-            --text-muted: #736E66;
-            --gold: #9E855C;
-            --border-light: rgba(158, 133, 92, 0.2);
+            --bg-color: #F4F1EA;
+            --card-bg: #FFFFFF;
+            --gold: #A38A65;
+            --text-main: #2C2A29;
+            --text-muted: #7A7570;
+            --border-color: #E8E2D5;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,242 +25,227 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 60px 20px;
+            padding: 40px 15px;
         }
 
-        .invitation {
+        .invitation-card {
             width: 100%;
-            max-width: 680px;
+            max-width: 580px;
+            background-color: var(--card-bg);
+            border-radius: 20px 20px 4px 4px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .card-header {
+            padding: 60px 40px 40px;
             text-align: center;
-            padding: 20px;
+            background: linear-gradient(to bottom, #FAF8F5, #FFFFFF);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        /* Шапка */
-        .date-top {
-            font-size: 12px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 30px;
+        .names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 44px;
             font-weight: 400;
-        }
-
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 64px;
-            font-weight: 300;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            color: #1A1817;
             margin-bottom: 15px;
-            color: #1c1a18;
         }
 
-        .subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 24px;
-            margin-bottom: 50px;
-        }
-
-        .divider {
-            width: 1px;
-            height: 60px;
-            background-color: var(--gold);
-            margin: 40px auto;
-            opacity: 0.4;
-        }
-
-        /* Текстовые блоки */
-        .story-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            line-height: 1.8;
-            color: var(--text-main);
-            margin-bottom: 50px;
-            font-weight: 300;
-            padding: 0 20px;
-        }
-
-        /* Блоки с деталями */
-        .details-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 50px 0;
-            text-align: left;
-        }
-
-        .detail-card {
-            background: #FFFFFF;
-            padding: 35px 30px;
-            border-radius: 4px;
-            border: 1px solid var(--border-light);
-        }
-
-        .detail-card span {
-            display: block;
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
-
-        .detail-card p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            color: var(--text-main);
-            line-height: 1.4;
-        }
-
-        /* Таймер */
-        .countdown-wrapper {
-            margin: 60px 0;
-        }
-
-        .countdown-title {
+        .subtitle-top {
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--gold);
             margin-bottom: 25px;
+            font-weight: 500;
         }
 
+        .date-badge-arch {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .card-body {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .text-block {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+        }
+
+        .details-box {
+            background: #FAF8F5;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .detail-row {
+            margin-bottom: 15px;
+        }
+        .detail-row:last-child { margin-bottom: 0; }
+
+        .detail-row span {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 3px;
+            font-weight: 500;
+        }
+
+        .detail-row p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: var(--text-main);
+        }
+
+        .countdown-container {
+            margin: 35px 0;
+        }
+        .countdown-title {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 12px;
         }
-
-        .countdown-item span {
-            display: block;
+        .countdown-box {
+            background: #FAF8F5;
+            border: 1px solid var(--border-color);
+            padding: 10px 8px;
+            border-radius: 8px;
+            min-width: 60px;
+            text-align: center;
         }
-
         .countdown-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 38px;
-            font-weight: 300;
+            font-size: 22px;
             color: var(--gold);
-            margin-bottom: 5px;
+            font-weight: 500;
         }
-
         .countdown-label {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             color: var(--text-muted);
+            margin-top: 2px;
         }
 
-        /* Просьба про горько */
-        .note-text {
+        .note-box {
+            background: rgba(163, 138, 101, 0.05);
+            border-left: 2px solid var(--gold);
+            padding: 18px 20px;
+            margin: 30px 0;
+            text-align: left;
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 20px;
-            line-height: 1.7;
-            color: var(--text-muted);
-            margin: 60px 0;
-            padding: 0 30px;
-            border-left: 1px solid var(--gold);
-            border-right: 1px solid var(--gold);
+            font-size: 18px;
+            line-height: 1.6;
+            color: #59534E;
+            border-radius: 0 8px 8px 0;
         }
 
-        /* Форма RSVP */
         .rsvp-section {
-            background: #FFFFFF;
-            padding: 50px 40px;
-            border-radius: 4px;
-            border: 1px solid var(--border-light);
-            margin-top: 50px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
             text-align: left;
         }
 
         .rsvp-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 35px;
+            font-size: 24px;
             color: var(--text-main);
+            margin-bottom: 8px;
+            text-align: center;
         }
 
-        .form-group {
+        .rsvp-subtitle {
+            font-size: 12px;
+            color: var(--gold);
+            text-align: center;
+            letter-spacing: 1px;
             margin-bottom: 25px;
+            text-transform: uppercase;
         }
+
+        .form-group { margin-bottom: 20px; }
 
         .form-group label {
             display: block;
             font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
         }
 
         .form-control {
             width: 100%;
-            padding: 15px 0;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #D8D2C9;
+            padding: 12px 15px;
+            background: #FAF8F5;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: var(--gold);
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 40px;
-            margin-top: 15px;
-        }
-
-        .radio-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
             font-size: 14px;
-            color: var(--text-main);
+            outline: none;
         }
+        .form-control:focus { border-color: var(--gold); background: #FFF; }
+
+        .radio-group { display: flex; gap: 20px; margin-top: 8px; }
+        .radio-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-main); }
 
         .submit-btn {
             width: 100%;
-            padding: 18px;
-            background-color: #1c1a18;
-            color: #ffffff;
+            padding: 14px;
+            background-color: var(--gold);
+            color: #FFFFFF;
             border: none;
-            border-radius: 2px;
+            border-radius: 8px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
-            letter-spacing: 3px;
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s;
+            margin-top: 10px;
+            transition: opacity 0.3s;
         }
-
-        .submit-btn:hover {
-            background-color: var(--gold);
-        }
+        .submit-btn:hover { opacity: 0.9; }
 
         .success-msg {
             display: none;
+            background: #F4F8F4;
+            border: 1px solid #D1E7D1;
+            color: #2E7D32;
+            padding: 15px;
+            border-radius: 8px;
             text-align: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
-            color: var(--gold);
-            padding: 30px 0;
-        }
-
-        @media (max-width: 600px) {
-            .details-section { grid-template-columns: 1fr; }
-            h1 { font-size: 48px; }
-            .countdown { gap: 20px; }
+            font-size: 14px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -269,70 +255,74 @@
         <source src="my-song.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="invitation">
-        <div class="date-top">10 · 10 · 2026</div>
-        <h1>Мы женимся</h1>
-        <div class="subtitle">Приглашение для самых близких</div>
-
-        <div class="divider"></div>
-
-        <div class="story-text">
-            Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного торжества, но нам невероятно важно провести этот день в окружении людей, с которыми тепло, уютно и радостно.
+    <div class="invitation-card">
+        <div class="card-header">
+            <div class="subtitle-top">Приглашение на свадьбу</div>
+            <div class="names">Владимир & Лилия</div>
+            <div class="date-badge-arch">10 · 10 · 2026</div>
         </div>
 
-        <div class="details-section">
-            <div class="detail-card">
-                <span>Дата</span>
-                <p>10 октября<br>2026 года</p>
+        <div class="card-body">
+            <div class="text-block">
+                Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного торжества, но нам невероятно важно провести этот день в окружении близких людей.
             </div>
-            <div class="detail-card">
-                <span>Место сбора</span>
-                <p>В 16:00<br>[Укажите адрес]</p>
-            </div>
-        </div>
 
-        <div class="countdown-wrapper">
-            <div class="countdown-title">До нашей встречи осталось</div>
-            <div class="countdown">
-                <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">дней</span></div>
-                <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">часов</span></div>
-                <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">минут</span></div>
-                <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">секунд</span></div>
-            </div>
-        </div>
-
-        <div class="note-text">
-            Мы бы очень хотели обойтись без криков «горько». Поцелуй — это искреннее проявление чувств, а не ритуал. Давайте просто наслаждаться этим днем вместе!
-        </div>
-
-        <div class="rsvp-section">
-            <div class="rsvp-title">Подтверждение присутствия</div>
-            <form id="rsvpForm">
-                <div class="form-group">
-                    <label for="name">Ваши Имя и Фамилия</label>
-                    <input type="text" id="name" name="name" class="form-control" required placeholder="Введите имя">
+            <div class="details-box">
+                <div class="detail-row">
+                    <span>Дата</span>
+                    <p>10 октября 2026 года</p>
                 </div>
+                <div class="detail-row" style="margin-top: 15px;">
+                    <span>Время и место сбора</span>
+                    <p>Сбор гостей в 16:00 по адресу: [Укажи улицу, дом, кв.]</p>
+                </div>
+            </div>
 
-                <div class="form-group">
-                    <label>Сможете ли вы прийти?</label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="attendance" value="Буду с удовольствием!" required> Буду с удовольствием
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="attendance" value="К сожалению, не смогу"> К сожалению, не смогу
-                        </label>
+            <div class="countdown-container">
+                <div class="countdown-title">До нашей встречи осталось</div>
+                <div class="countdown">
+                    <div class="countdown-box"><div class="countdown-number" id="days">00</div><div class="countdown-label">дней</div></div>
+                    <div class="countdown-box"><div class="countdown-number" id="hours">00</div><div class="countdown-label">часов</div></div>
+                    <div class="countdown-box"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">минут</div></div>
+                    <div class="countdown-box"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">секунд</div></div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                Будем благодарны, если вы воздержитесь от криков «Горько» на празднике, ведь поцелуй — это знак выражения чувств, он не может быть по заказу.
+            </div>
+
+            <div class="rsvp-section">
+                <div class="rsvp-title">Подтверждение присутствия</div>
+                <div class="rsvp-subtitle">Пожалуйста, подтвердите свое присутствие до 20.09.2026</div>
+                
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="name">Ваши Имя и Фамилия</label>
+                        <input type="text" id="name" name="name" class="form-control" required placeholder="Например, Анна Смирнова">
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="wish">Пожелания или комментарий</label>
-                    <input type="text" id="wish" name="wish" class="form-control" placeholder="Пара слов для нас">
-                </div>
+                    <div class="form-group">
+                        <label>Сможете ли вы прийти?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="Буду с удовольствием!" required> С удовольствием
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="К сожалению, не смогу"> Не смогу
+                            </label>
+                        </div>
+                    </div>
 
-                <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
-            </form>
-            <div id="successMsg" class="success-msg">Спасибо! Ваш ответ успешно отправлен.</div>
+                    <div class="form-group">
+                        <label for="wish">Пожелания или комментарий</label>
+                        <input type="text" id="wish" name="wish" class="form-control" placeholder="Пара слов для нас">
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
+                </form>
+                <div id="successMsg" class="success-msg">Спасибо! Ваш ответ успешно отправлен. Ждем вас!</div>
+            </div>
         </div>
     </div>
 
