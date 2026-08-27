@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10.10.2026 — Мы женимся</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>10 · 10 · 2026 — Мы женимся</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #FBF9F7;
-            --card-bg: #FFFFFF;
-            --border-color: #EFECE6;
-            --gold: #A38A65;
-            --text-main: #2C2A29;
-            --text-muted: #7A7570;
+            --bg-color: #F7F5F0;
+            --text-main: #2b2927;
+            --text-muted: #736E66;
+            --gold: #9E855C;
+            --border-light: rgba(158, 133, 92, 0.2);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,265 +24,300 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px 20px;
+            padding: 60px 20px;
         }
 
-        .container {
+        .invitation {
             width: 100%;
-            max-width: 650px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 50px rgba(163, 138, 101, 0.06);
+            max-width: 680px;
             text-align: center;
+            padding: 20px;
         }
 
-        .date-badge {
-            font-size: 13px;
-            letter-spacing: 5px;
+        /* Шапка */
+        .date-top {
+            font-size: 12px;
+            letter-spacing: 6px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 20px;
-            font-weight: 500;
+            margin-bottom: 30px;
+            font-weight: 400;
         }
 
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 52px;
-            font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            color: #1A1817;
+            font-size: 64px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            color: #1c1a18;
         }
 
         .subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             color: var(--text-muted);
-            font-size: 22px;
-            margin-bottom: 35px;
+            font-size: 24px;
+            margin-bottom: 50px;
         }
 
         .divider {
-            width: 40px;
-            height: 1px;
+            width: 1px;
+            height: 60px;
             background-color: var(--gold);
-            margin: 30px auto;
+            margin: 40px auto;
+            opacity: 0.4;
         }
 
-        .text-block {
-            font-size: 15px;
-            line-height: 1.9;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-            padding: 0 10px;
+        /* Текстовые блоки */
+        .story-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 50px;
+            font-weight: 300;
+            padding: 0 20px;
         }
 
-        .details-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin: 35px 0;
-            background: #FDFCFB;
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
+        /* Блоки с деталями */
+        .details-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
             text-align: left;
         }
 
-        .detail-item span {
+        .detail-card {
+            background: #FFFFFF;
+            padding: 35px 30px;
+            border-radius: 4px;
+            border: 1px solid var(--border-light);
+        }
+
+        .detail-card span {
             display: block;
             font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 6px;
-            font-weight: 500;
+            margin-bottom: 12px;
         }
 
-        .detail-item p { 
-            font-size: 16px; 
-            color: var(--text-main); 
-            font-weight: 400;
+        .detail-card p {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-        }
-
-        .note-box {
-            background: #F9F7F5;
-            border-left: 2px solid var(--gold);
-            padding: 20px 24px;
-            margin: 35px 0;
-            text-align: left;
-            font-size: 14px;
-            line-height: 1.7;
-            color: #59534E;
-            font-style: italic;
-            border-radius: 0 12px 12px 0;
+            font-size: 22px;
+            color: var(--text-main);
+            line-height: 1.4;
         }
 
         /* Таймер */
+        .countdown-wrapper {
+            margin: 60px 0;
+        }
+
+        .countdown-title {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin: 35px 0;
+            gap: 40px;
         }
-        .countdown-box {
-            background: #FDFCFB;
-            border: 1px solid var(--border-color);
-            padding: 15px 10px;
-            border-radius: 12px;
-            text-align: center;
-            min-width: 75px;
+
+        .countdown-item span {
+            display: block;
         }
+
         .countdown-number {
-            font-size: 26px;
-            font-weight: 500;
-            color: var(--gold);
             font-family: 'Cormorant Garamond', serif;
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--gold);
+            margin-bottom: 5px;
         }
+
         .countdown-label {
             font-size: 10px;
             text-transform: uppercase;
+            letter-spacing: 2px;
             color: var(--text-muted);
-            margin-top: 6px;
-            letter-spacing: 1px;
         }
 
-        /* Форма */
-        .rsvp-form {
-            margin-top: 45px;
-            padding-top: 35px;
-            border-top: 1px solid var(--border-color);
+        /* Просьба про горько */
+        .note-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin: 60px 0;
+            padding: 0 30px;
+            border-left: 1px solid var(--gold);
+            border-right: 1px solid var(--gold);
+        }
+
+        /* Форма RSVP */
+        .rsvp-section {
+            background: #FFFFFF;
+            padding: 50px 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-light);
+            margin-top: 50px;
             text-align: left;
         }
 
         .rsvp-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 26px;
-            color: var(--text-main);
-            margin-bottom: 25px;
+            font-size: 32px;
+            font-weight: 300;
             text-align: center;
+            margin-bottom: 35px;
+            color: var(--text-main);
         }
 
-        .form-group { margin-bottom: 20px; }
+        .form-group {
+            margin-bottom: 25px;
+        }
 
         .form-group label {
             display: block;
             font-size: 11px;
             letter-spacing: 2px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
             text-transform: uppercase;
-            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 10px;
         }
 
         .form-control {
             width: 100%;
-            padding: 15px 18px;
-            background: #FDFCFB;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            padding: 15px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #D8D2C9;
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             outline: none;
             transition: border-color 0.3s;
         }
-        .form-control:focus { border-color: var(--gold); background: #ffffff; }
 
-        .radio-group { display: flex; gap: 30px; margin-top: 12px; }
-        .radio-label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: var(--text-main); font-weight: 400; }
+        .form-control:focus {
+            border-color: var(--gold);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 40px;
+            margin-top: 15px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-main);
+        }
 
         .submit-btn {
             width: 100%;
-            padding: 16px;
-            background-color: var(--text-main);
+            padding: 18px;
+            background-color: #1c1a18;
             color: #ffffff;
             border: none;
-            border-radius: 12px;
+            border-radius: 2px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-size: 11px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 20px;
             transition: background-color 0.3s;
         }
-        .submit-btn:hover { background-color: var(--gold); }
+
+        .submit-btn:hover {
+            background-color: var(--gold);
+        }
 
         .success-msg {
             display: none;
-            background: #F4F8F4;
-            border: 1px solid #D1E7D1;
-            color: #2E7D32;
-            padding: 20px;
-            border-radius: 12px;
             text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: var(--gold);
+            padding: 30px 0;
+        }
+
+        @media (max-width: 600px) {
+            .details-section { grid-template-columns: 1fr; }
+            h1 { font-size: 48px; }
+            .countdown { gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Аудио элемент (будет играть твой файл my-song.mp3) -->
     <audio id="bgAudio" loop preload="auto">
         <source src="my-song.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="container">
-        <div class="date-badge">10 · 10 · 2026</div>
+    <div class="invitation">
+        <div class="date-top">10 · 10 · 2026</div>
         <h1>Мы женимся</h1>
         <div class="subtitle">Приглашение для самых близких</div>
 
         <div class="divider"></div>
 
-        <div class="text-block">
-            Совсем скоро состоится важное для нас событие. Мы решили отказаться от шумного классического торжества, но нам невероятно важно провести этот день в окружении близких людей, с которыми тепло, уютно и радостно.
+        <div class="story-text">
+            Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного торжества, но нам невероятно важно провести этот день в окружении людей, с которыми тепло, уютно и радостно.
         </div>
 
-        <div class="details-grid">
-            <div class="detail-item">
+        <div class="details-section">
+            <div class="detail-card">
                 <span>Дата</span>
-                <p>10 октября 2026 года</p>
+                <p>10 октября<br>2026 года</p>
             </div>
-            <div class="detail-item">
-                <span>Время и место сбора</span>
-                <p>Сбор гостей в 16:00 по адресу: [Укажи улицу, дом, кв.]</p>
+            <div class="detail-card">
+                <span>Место сбора</span>
+                <p>В 16:00<br>[Укажите адрес]</p>
             </div>
         </div>
 
-        <!-- Таймер -->
-        <div class="countdown">
-            <div class="countdown-box"><div class="countdown-number" id="days">00</div><div class="countdown-label">дней</div></div>
-            <div class="countdown-box"><div class="countdown-number" id="hours">00</div><div class="countdown-label">часов</div></div>
-            <div class="countdown-box"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">минут</div></div>
-            <div class="countdown-box"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">секунд</div></div>
+        <div class="countdown-wrapper">
+            <div class="countdown-title">До нашей встречи осталось</div>
+            <div class="countdown">
+                <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">дней</span></div>
+                <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">часов</span></div>
+                <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">минут</span></div>
+                <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">секунд</span></div>
+            </div>
         </div>
 
-        <div class="note-box">
-            Небольшая просьба насчет атмосферы: мы бы хотели обойтись без криков «горько». Поцелуй — это искреннее проявление чувств, а не ритуал по приказу. Давайте просто наслаждаться общением, вкусной едой и нашей компанией!
+        <div class="note-text">
+            Мы бы очень хотели обойтись без криков «горько». Поцелуй — это искреннее проявление чувств, а не ритуал. Давайте просто наслаждаться этим днем вместе!
         </div>
 
-        <!-- Форма -->
-        <div class="rsvp-form">
+        <div class="rsvp-section">
             <div class="rsvp-title">Подтверждение присутствия</div>
             <form id="rsvpForm">
                 <div class="form-group">
                     <label for="name">Ваши Имя и Фамилия</label>
-                    <input type="text" id="name" name="name" class="form-control" required placeholder="Например, Анна Смирнова">
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="Введите имя">
                 </div>
 
                 <div class="form-group">
                     <label>Сможете ли вы прийти?</label>
                     <div class="radio-group">
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="Буду с удовольствием!" required> С удовольствием буду
+                            <input type="radio" name="attendance" value="Буду с удовольствием!" required> Буду с удовольствием
                         </label>
                         <label class="radio-label">
                             <input type="radio" name="attendance" value="К сожалению, не смогу"> К сожалению, не смогу
@@ -292,31 +326,24 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="wish">Пожелания или комментарий (необязательно)</label>
-                    <input type="text" id="wish" name="wish" class="form-control" placeholder="Ждем с нетерпением!">
+                    <label for="wish">Пожелания или комментарий</label>
+                    <input type="text" id="wish" name="wish" class="form-control" placeholder="Пара слов для нас">
                 </div>
 
                 <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
             </form>
-            <div id="successMsg" class="success-msg">Спасибо! Ваш ответ успешно отправлен. Мы с нетерпением ждем встречи!</div>
+            <div id="successMsg" class="success-msg">Спасибо! Ваш ответ успешно отправлен.</div>
         </div>
     </div>
 
     <script>
-        // Автозапуск музыки при открытии сайта или по первому клику
         const audio = document.getElementById('bgAudio');
-
-        function startMusic() {
+        window.addEventListener('DOMContentLoaded', () => {
             audio.play().catch(() => {
-                document.addEventListener('click', () => {
-                    audio.play();
-                }, { once: true });
+                document.addEventListener('click', () => audio.play(), { once: true });
             });
-        }
+        });
 
-        window.addEventListener('DOMContentLoaded', startMusic);
-
-        // Таймер до 10.10.2026
         const weddingDate = new Date("2026-10-10T16:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -329,7 +356,6 @@
             }
         }, 1000);
 
-        // Telegram отправка
         const TELEGRAM_BOT_TOKEN = "8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ"; 
         const CHAT_ID = "867899349";
 
@@ -348,10 +374,7 @@
             fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: message
-                })
+                body: JSON.stringify({ chat_id: CHAT_ID, text: message })
             }).then(res => {
                 if(res.ok) {
                     document.getElementById('rsvpForm').style.display = 'none';
@@ -362,7 +385,7 @@
                     btn.disabled = false;
                 }
             }).catch(() => {
-                alert('Ошибка сети. Проверьте подключение.');
+                alert('Ошибка сети.');
                 btn.innerText = "Отправить ответ";
                 btn.disabled = false;
             });
