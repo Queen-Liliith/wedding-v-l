@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.10 — Мы женимся!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #242221;
+            --card-bg: #2d2a29;
+            --border-color: #3d3937;
+            --gold: #dfb97e;
+            --text-main: #f4f0eb;
+            --text-muted: #b8b2a7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .music-bar {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(223, 185, 126, 0.15);
+            border: 1px solid var(--gold);
+            border-radius: 30px;
+            padding: 6px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .music-bar:hover { background: rgba(223, 185, 126, 0.25); }
+        .music-bar span { font-size: 12px; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; }
+        .music-bar svg { width: 16px; height: 16px; fill: var(--gold); }
+
+        .date-badge {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 44px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 1px;
+            background-color: var(--gold);
+            margin: 25px 0;
+        }
+
+        .text-block {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .details-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .detail-item span {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .detail-item p { font-size: 15px; color: var(--text-main); }
+
+        .note-box {
+            background: rgba(223, 185, 126, 0.08);
+            border-left: 3px solid var(--gold);
+            padding: 18px;
+            margin: 25px 0;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #d9d4cc;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Таймер */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .countdown-box {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 60px;
+        }
+        .countdown-number {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+        .countdown-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Форма без регистраций */
+        .rsvp-form {
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .rsvp-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-group { margin-bottom: 15px; }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: #211e1d;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus { border-color: var(--gold); }
+
+        .radio-group { display: flex; gap: 20px; margin-top: 8px; }
+        .radio-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-main); }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--gold);
+            color: #242221;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: opacity 0.3s;
+        }
+        .submit-btn:hover { opacity: 0.9; }
+
+        .success-msg {
+            display: none;
+            background: rgba(76, 175, 80, 0.15);
+            border: 1px solid #4CAF50;
+            color: #81C784;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Плеер -->
+        <div class="music-bar" id="musicToggle" onclick="toggleMusic()">
+            <svg id="musicIcon" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            <span id="musicText">Музыка</span>
+        </div>
+        <audio id="bgAudio" loop>
+            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf7f6.mp3?filename=romantic-guitars-112140.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="date-badge">10 · 10 · 2026</div>
+        <h1>Мы женимся!</h1>
+        <div class="subtitle">Приглашение для самых близких</div>
+
+        <div class="divider"></div>
+
+        <div class="text-block">
+            Привет! Совсем скоро состоится важное для нас событие — наша роспись. Мы решили отказаться от классического пышного торжества, но нам очень хочется провести этот день в окружении близких людей, с которыми тепло, уютно и весело.
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-item">
+                <span>Дата</span>
+                <p>10 октября 2026</p>
+            </div>
+            <div class="detail-item">
+                <span>Время сбора</span>
+                <p>с 16:00 (официальная часть в ЗАГСе пройдет днем вдвоем)</p>
+            </div>
+            <div class="detail-item">
+                <span>Место</span>
+                <p>Название ресторана / бара</p>
+            </div>
+        </div>
+
+        <!-- Таймер -->
+        <div class="countdown">
+            <div class="countdown-box"><div class="countdown-number" id="days">00</div><div class="countdown-label">дней</div></div>
+            <div class="countdown-box"><div class="countdown-number" id="hours">00</div><div class="countdown-label">часов</div></div>
+            <div class="countdown-box"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">минут</div></div>
+            <div class="countdown-box"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">секунд</div></div>
+        </div>
+
+        <div class="note-box">
+            Небольшая просьба насчет атмосферы: мы бы хотели обойтись без криков «горько». Поцелуй — это искреннее проявление чувств, а не ритуал по приказу. Давайте просто наслаждаться общением, вкусной едой и нашей компанией!
+        </div>
+
+        <!-- Форма отправки ответов прямо в Telegram (никаких регистраций для гостей!) -->
+        <div class="rsvp-form">
+            <div class="rsvp-title">Подтверждение присутствия</div>
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="name">Твое имя</label>
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="Например, Саша">
+                </div>
+
+                <div class="form-group">
+                    <label>Сможешь прийти?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="Буду с удовольствием!" required> Буду!
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="К сожалению, не смогу"> Не смогу
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wish">Пара слов / пожелание (необязательно)</label>
+                    <input type="text" id="wish" name="wish" class="form-control" placeholder="Жду не дождусь">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
+            </form>
+            <div id="successMsg" class="success-msg">Спасибо! Твой ответ успешно улетел организаторам.</div>
+        </div>
+    </div>
+
+    <script>
+        // Плеер
+        const audio = document.getElementById('bgAudio');
+        const musicToggle = document.getElementById('musicToggle');
+        const musicText = document.getElementById('musicText');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicText.innerText = "Музыка";
+                musicToggle.style.opacity = "0.7";
+            } else {
+                audio.play().then(() => {
+                    musicText.innerText = "Пауза";
+                    musicToggle.style.opacity = "1";
+                }).catch(e => console.log("Audio blocked"));
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Таймер до 10.10.2026
+        const weddingDate = new Date("2026-10-10T16:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            if (diff > 0) {
+                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }, 1000);
+
+        // Отправка данных без сервера через публичный API Telegram-бота (чтобы тебе падало в личку)
+        // Замени TELEGRAM_BOT_TOKEN и CHAT_ID на свои, когда создашь бота (или я могу подсказать, как сделать за 30 секунд)
+        const TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"; 
+        const CHAT_ID = "YOUR_CHAT_ID_HERE";
+
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+            const wish = document.getElementById('wish').value || "Без комментариев";
+
+            const message = `💍 Новый ответ на свадьбу!\n\n👤 Имя: ${name}\n📌 Ответ: ${attendance}\n💬 Пожелание: ${wish}`;
+            
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "Отправка...";
+            btn.disabled = true;
+
+            // Если бот еще не настроен, просто показываем успех для теста
+            if (TELEGRAM_BOT_TOKEN === "YOUR_BOT_TOKEN_HERE") {
+                setTimeout(() => {
+                    document.getElementById('rsvpForm').style.display = 'none';
+                    document.getElementById('successMsg').style.display = 'block';
+                }, 500);
+                return;
+            }
+
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message
+                })
+            }).then(res => {
+                if(res.ok) {
+                    document.getElementById('rsvpForm').style.display = 'none';
+                    document.getElementById('successMsg').style.display = 'block';
+                } else {
+                    alert('Ошибка отправки. Попробуй еще раз.');
+                    btn.innerText = "Отправить ответ";
+                    btn.disabled = false;
+                }
+            }).catch(() => {
+                alert('Ошибка сети.');
+                btn.innerText = "Отправить ответ";
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
