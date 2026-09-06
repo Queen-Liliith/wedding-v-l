@@ -25,48 +25,49 @@
             padding: 20px 10px;
         }
 
-        /* Первый экран: картинка во весь экран на мобильных */
+        /* Первый экран с полной картинкой без обрезок */
         .invitation-card {
             width: 100%;
             max-width: 480px;
-            background-image: url('https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg');
-            background-size: cover;
-            background-position: center;
             border-radius: 16px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             overflow: hidden;
             position: relative;
             margin-bottom: 20px;
             border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #0F141C;
+        }
+
+        /* Картинка вставляется тегом, чтобы быть видна на 100% */
+        .card-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Затемнение поверх картинки для идеальной читаемости текста */
+        .card-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 20, 28, 0.65);
             display: flex;
             flex-direction: column;
             justify-content: center;
-        }
-
-        /* Затемнение для читаемости текста поверх картинки */
-        .invitation-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 20, 28, 0.72);
-            z-index: 1;
+            padding: 15px;
         }
 
         .card-header {
-            position: relative;
-            z-index: 2;
-            padding: 40px 20px;
+            padding: 30px 15px;
             text-align: center;
-            margin: 15px;
             border: 1px solid rgba(255,255,255,0.15);
             border-radius: 12px;
-            background: rgba(20, 26, 36, 0.5);
+            background: rgba(20, 26, 36, 0.6);
             backdrop-filter: blur(4px);
         }
 
         .names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 500;
             color: #FCEFEF;
             line-height: 1.2;
@@ -79,38 +80,38 @@
             text-transform: uppercase;
             color: var(--pink);
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .divider {
             width: 40px;
             height: 2px;
             background-color: #FFFFFF;
-            margin: 15px auto;
+            margin: 12px auto;
         }
 
         .event-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
+            font-size: 19px;
             color: #FCEFEF;
             margin-bottom: 6px;
         }
 
         .event-place {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
             line-height: 1.4;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .intro-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 17px;
+            font-size: 16px;
             line-height: 1.5;
             color: #E2E8F0;
         }
 
-        /* Второй блок: чистый цвет без цветов и узоров */
+        /* Второй блок: чистый цвет */
         .content-card {
             width: 100%;
             max-width: 480px;
@@ -165,7 +166,7 @@
             margin-top: 2px;
         }
 
-        /* Блок про поцелуи (без наклона) */
+        /* Блок про поцелуи */
         .note-box {
             background: rgba(212, 131, 152, 0.1);
             border-left: 3px solid var(--pink);
@@ -265,20 +266,23 @@
 </head>
 <body>
 
-    <!-- Первый экран -->
+    <!-- Первый экран: картинка вставлена целиком -->
     <div class="invitation-card">
-        <div class="card-header">
-            <div class="names">Владимир и Лилия</div>
-            <div class="sub-title">НАКОНЕЦ-ТО ЖЕНЯТСЯ!</div>
-            
-            <div class="divider"></div>
-            
-            <div class="event-date">10 октября 2026 года • 17:00</div>
-            <div class="event-place">Нарва<br>Kangelaste 10а - 148</div>
-            
-            <div class="intro-text">
-                Приглашение для самых близких.<br><br>
-                Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного и стандартного торжества, но нам невероятно важно провести этот день в окружении дорогих нам людей, с которыми тепло, уютно и радостно 🥰
+        <img src="https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg" alt="Владимир и Лилия" class="card-img">
+        <div class="card-overlay">
+            <div class="card-header">
+                <div class="names">Владимир и Лилия</div>
+                <div class="sub-title">НАКОНЕЦ-ТО ЖЕНЯТСЯ!</div>
+                
+                <div class="divider"></div>
+                
+                <div class="event-date">10 октября 2026 года • 17:00</div>
+                <div class="event-place">Нарва<br>Kangelaste 10а - 148</div>
+                
+                <div class="intro-text">
+                    Приглашение для самых близких.<br><br>
+                    Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного и стандартного торжества, но нам невероятно важно провести этот день в окружении дорогих нам людей, с которыми тепло, уютно и радостно 🥰
+                </div>
             </div>
         </div>
     </div>
