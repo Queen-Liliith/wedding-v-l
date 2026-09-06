@@ -25,7 +25,6 @@
             padding: 20px 10px;
         }
 
-        /* Первый экран с полной картинкой без обрезок */
         .invitation-card {
             width: 100%;
             max-width: 480px;
@@ -38,14 +37,12 @@
             background: #0F141C;
         }
 
-        /* Картинка вставляется тегом, чтобы быть видна на 100% */
         .card-img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Затемнение поверх картинки для идеальной читаемости текста */
         .card-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -111,7 +108,6 @@
             color: #E2E8F0;
         }
 
-        /* Второй блок: чистый цвет */
         .content-card {
             width: 100%;
             max-width: 480px;
@@ -129,7 +125,6 @@
             text-align: center;
         }
 
-        /* Таймер */
         .countdown-container {
             margin-bottom: 30px;
         }
@@ -166,7 +161,6 @@
             margin-top: 2px;
         }
 
-        /* Блок про поцелуи */
         .note-box {
             background: rgba(212, 131, 152, 0.1);
             border-left: 3px solid var(--pink);
@@ -180,7 +174,6 @@
             border-radius: 0 8px 8px 0;
         }
 
-        /* Форма RSVP */
         .rsvp-section {
             margin-top: 25px;
             padding-top: 25px;
@@ -266,7 +259,6 @@
 </head>
 <body>
 
-    <!-- Первый экран: картинка вставлена целиком -->
     <div class="invitation-card">
         <img src="https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg" alt="Владимир и Лилия" class="card-img">
         <div class="card-overlay">
@@ -287,10 +279,8 @@
         </div>
     </div>
 
-    <!-- Второй блок -->
     <div class="content-card">
         <div class="content-inner">
-            <!-- Таймер -->
             <div class="countdown-container">
                 <div class="countdown-title">До нашей встречи осталось</div>
                 <div class="countdown">
@@ -301,15 +291,13 @@
                 </div>
             </div>
 
-            <!-- Блок про поцелуи -->
             <div class="note-box">
                 Будем благодарны, если вы воздержитесь от криков «Горько» на празднике, ведь поцелуй — это знак выражения чувств, он не может быть по заказу ☺️
             </div>
 
-            <!-- Форма RSVP -->
             <div class="rsvp-section">
                 <div class="rsvp-title">Подтверждение присутствия</div>
-                <div class="rsvp-subtitle">Пожалуйста, подтвердите свое присутствие до 20.09.2026</div>
+                <div class="rsvp-subtitle">Пожалуйста, сообщите нам о своем решении</div>
                 
                 <form id="rsvpForm">
                     <div class="form-group">
