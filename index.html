@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владимир & Лилия — 10.10.2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Подключаем красивый рукописный шрифт для имен и Cormorant для текста -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --pink: #D48398;
@@ -47,61 +48,61 @@
         .card-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 20, 28, 0.72);
+            background: rgba(15, 20, 28, 0.75);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 35px 24px;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 24px;
             text-align: center;
         }
 
-        /* Стильные блоки внутри карточки */
-        .header-group {
-            margin-top: 10px;
-        }
-
-        .main-names {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
-            font-weight: 500;
+        /* 1. Блок имен (крупный красивый рукописный шрифт) */
+        .block-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 52px;
             color: #FCEFEF;
             line-height: 1.1;
             margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .sub-event {
+        /* 2. Блок «наконец-то женятся» */
+        .block-status {
             font-size: 11px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--pink);
             font-weight: 600;
+            margin-bottom: 35px;
         }
 
-        .center-group {
-            margin: auto 0;
-            padding: 10px 0;
+        /* 3. Блок даты и адреса */
+        .block-datetime {
+            margin-bottom: 30px;
         }
 
-        .date-block {
+        .event-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 21px;
+            font-size: 20px;
             color: #FCEFEF;
-            font-weight: 400;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
-        .place-block {
-            font-size: 13px;
+        .event-place {
+            font-size: 12px;
             color: var(--text-muted);
             line-height: 1.4;
+            letter-spacing: 0.5px;
         }
 
-        .invitation-text {
+        /* 4. Блок текста (поднят выше, аккуратные отступы) */
+        .block-text {
             font-family: 'Cormorant Garamond', serif;
             font-size: 16px;
             line-height: 1.5;
             color: #E2E8F0;
-            margin-bottom: 10px;
+            max-width: 360px;
         }
 
         /* Второй блок (таймер и форма) */
@@ -259,25 +260,25 @@
 </head>
 <body>
 
-    <!-- Первый экран: Карточка -->
+    <!-- Первый экран: Карточка с четкой структурой -->
     <div class="invitation-card">
         <img src="https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg" alt="Владимир и Лилия" class="card-img">
         <div class="card-overlay">
             
-            <!-- Блок 1: Имена сверху -->
-            <div class="header-group">
-                <div class="main-names">Владимир и Лилия</div>
-                <div class="sub-event">Наконец-то женятся!</div>
+            <!-- 1. Блок: Имена (крупно и красиво) -->
+            <div class="block-names">Владимир и Лилия</div>
+
+            <!-- 2. Блок: Наконец-то женятся -->
+            <div class="block-status">Наконец-то женятся!</div>
+
+            <!-- 3. Блок: Дата и адрес -->
+            <div class="block-datetime">
+                <div class="event-date">10 октября 2026 года • 17:00</div>
+                <div class="event-place">Нарва, Kangelaste 10а - 148</div>
             </div>
 
-            <!-- Блок 2: Дата и место по центру -->
-            <div class="center-group">
-                <div class="date-block">10 октября 2026 года • 17:00</div>
-                <div class="place-block">Нарва, Kangelaste 10а - 148</div>
-            </div>
-
-            <!-- Блок 3: Текст приглашения снизу -->
-            <div class="invitation-text">
+            <!-- 4. Блок: Текст-приглашение (поднят выше) -->
+            <div class="block-text">
                 Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного и стандартного торжества, но нам невероятно важно провести этот день в окружении дорогих нам людей, с которыми тепло, уютно и радостно 🥰
             </div>
 
