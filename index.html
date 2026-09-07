@@ -37,7 +37,7 @@
 
 
         /* =====================================================
-           ПЕРВАЯ КАРТОЧКА-ПРИГЛАШЕНИЕ
+           ПЕРВАЯ КАРТОЧКА
            ===================================================== */
 
         .invitation-card {
@@ -93,17 +93,10 @@
 
         /* =====================================================
            ИМЕНА
-           
-           Они вынесены из flex-потока, поэтому их положение
-           НЕ влияет на остальные блоки.
            ===================================================== */
 
         .block-names {
-            position: absolute;
-
-            top: 45px;
-            left: 24px;
-            right: 24px;
+            width: 100%;
 
             font-family: 'Great Vibes', cursive;
 
@@ -111,24 +104,36 @@
 
             color: #FCEFEF;
 
-            line-height: 0.9;
+            line-height: 0.85;
+
+            margin-bottom: 25px;
 
             text-shadow:
                 0 2px 10px rgba(0,0,0,0.5);
-
-            z-index: 2;
         }
 
 
         .name-vladimir {
             text-align: left;
+
+            padding-left: 0;
+        }
+
+
+        .name-ampersand {
+            text-align: center;
+
+            font-size: 48px;
+
+            margin-top: 8px;
+            margin-bottom: 5px;
         }
 
 
         .name-lilia {
             text-align: right;
 
-            margin-top: 18px;
+            padding-right: 0;
         }
 
 
@@ -183,7 +188,7 @@
 
 
         /* =====================================================
-           ТЕКСТ-ПРИГЛАШЕНИЕ
+           ТЕКСТ
            ===================================================== */
 
         .block-text {
@@ -200,7 +205,7 @@
 
 
         /* =====================================================
-           ВТОРОЙ БЛОК — ТАЙМЕР И ФОРМА
+           ВТОРАЯ КАРТОЧКА
            ===================================================== */
 
         .content-card {
@@ -495,10 +500,6 @@
         }
 
 
-        /* =====================================================
-           УСПЕШНАЯ ОТПРАВКА
-           ===================================================== */
-
         .success-msg {
             display: none;
 
@@ -538,22 +539,24 @@
 
 
             .card-overlay {
-                padding: 30px 20px;
+                padding: 25px 18px;
             }
 
 
             .block-names {
-                top: 35px;
+                font-size: 45px;
 
-                left: 20px;
-                right: 20px;
+                line-height: 0.85;
 
-                font-size: 46px;
+                margin-bottom: 20px;
             }
 
 
-            .name-lilia {
-                margin-top: 15px;
+            .name-ampersand {
+                font-size: 42px;
+
+                margin-top: 7px;
+                margin-bottom: 4px;
             }
 
 
@@ -562,12 +565,17 @@
 
                 letter-spacing: 3px;
 
-                margin-bottom: 35px;
+                margin-bottom: 30px;
+            }
+
+
+            .block-datetime {
+                margin-bottom: 25px;
             }
 
 
             .event-date {
-                font-size: 19px;
+                font-size: 18px;
             }
 
 
@@ -577,7 +585,7 @@
 
 
             .block-text {
-                font-size: 16px;
+                font-size: 15px;
 
                 max-width: 350px;
             }
@@ -633,14 +641,12 @@
         @media (max-width: 380px) {
 
             .block-names {
-                font-size: 42px;
-
-                top: 32px;
+                font-size: 40px;
             }
 
 
-            .name-lilia {
-                margin-top: 12px;
+            .name-ampersand {
+                font-size: 38px;
             }
 
 
@@ -698,8 +704,12 @@
                     Владимир
                 </div>
 
+                <div class="name-ampersand">
+                    &
+                </div>
+
                 <div class="name-lilia">
-                    и Лилия
+                     Лилия
                 </div>
 
             </div>
@@ -766,7 +776,6 @@
 
                 <div class="countdown">
 
-
                     <div class="countdown-box">
 
                         <div
@@ -830,14 +839,13 @@
 
                     </div>
 
-
                 </div>
 
             </div>
 
 
 
-            <!-- БЛОК «ГОРЬКО» -->
+            <!-- ГОРЬКО -->
 
             <div class="note-box">
 
@@ -854,7 +862,6 @@
 
             <div class="rsvp-section">
 
-
                 <div class="rsvp-title">
                     Подтверждение присутствия
                 </div>
@@ -867,8 +874,6 @@
 
                 <form id="rsvpForm">
 
-
-                    <!-- ИМЯ -->
 
                     <div class="form-group">
 
@@ -887,9 +892,6 @@
 
                     </div>
 
-
-
-                    <!-- ПРИСУТСТВИЕ -->
 
                     <div class="form-group">
 
@@ -933,9 +935,6 @@
                     </div>
 
 
-
-                    <!-- ПОЖЕЛАНИЕ -->
-
                     <div class="form-group">
 
                         <label for="wish">
@@ -954,9 +953,6 @@
                     </div>
 
 
-
-                    <!-- КНОПКА -->
-
                     <button
                         type="submit"
                         class="submit-btn"
@@ -969,9 +965,6 @@
                 </form>
 
 
-
-                <!-- УСПЕШНАЯ ОТПРАВКА -->
-
                 <div
                     id="successMsg"
                     class="success-msg"
@@ -983,23 +976,17 @@
 
             </div>
 
-
         </div>
 
     </div>
 
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
-
     <script>
 
-
-        /* =====================================================
+        /* =========================
            ТАЙМЕР
-           ===================================================== */
+           ========================= */
 
         const weddingDate =
             new Date("2026-10-10T17:00:00").getTime();
@@ -1067,9 +1054,9 @@
 
 
 
-        /* =====================================================
+        /* =========================
            TELEGRAM
-           ===================================================== */
+           ========================= */
 
         const TELEGRAM_BOT_TOKEN =
             "8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ";
@@ -1079,10 +1066,9 @@
             "867899349";
 
 
-
-        /* =====================================================
+        /* =========================
            ФОРМА
-           ===================================================== */
+           ========================= */
 
         document
             .getElementById('rsvpForm')
@@ -1131,7 +1117,6 @@
 
                     btn.disabled =
                         true;
-
 
 
                     fetch(
