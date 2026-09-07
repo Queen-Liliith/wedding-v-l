@@ -407,10 +407,10 @@
         btn.innerText = "Отправка...";
         btn.disabled = true;
 
-        fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        fetch(`https://api.telegram.org/bot${8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+            body: JSON.stringify({ chat_id: 867899349, text: message })
         })
         .then(res => {
             if (res.ok) {
