@@ -26,7 +26,7 @@
             padding: 30px 15px;
         }
 
-        /* Главная карточка-приглашение (увеличили ширину до 620px) */
+        /* Главная карточка-приглашение */
         .invitation-card {
             width: 100%;
             max-width: 620px;
@@ -48,49 +48,56 @@
         .card-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 20, 28, 0.75);
+            background: rgba(15, 20, 28, 0.65);
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            padding: 45px 35px;
+            padding: 35px 30px;
             text-align: center;
         }
 
-        /* 1. Блок: Имена */
+        /* 1. Блок: Имена (подняты выше) */
         .block-names {
             font-family: 'Great Vibes', cursive;
-            font-size: 64px;
+            font-size: 60px;
             color: #FCEFEF;
             line-height: 1.1;
-            margin-bottom: 12px;
+            margin-top: 10px;
+            margin-bottom: 5px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         /* 2. Блок «наконец-то женятся» */
         .block-status {
-            font-size: 13px;
-            letter-spacing: 5px;
+            font-size: 12px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--pink);
             font-weight: 600;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
 
         /* 3. Блок даты и адреса */
         .block-datetime {
-            margin-bottom: 35px;
+            margin-bottom: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 420px;
         }
 
         .event-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
+            font-size: 21px;
             color: #FCEFEF;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .event-place {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-muted);
             line-height: 1.4;
             letter-spacing: 0.5px;
@@ -99,10 +106,15 @@
         /* 4. Блок текста */
         .block-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            line-height: 1.55;
+            font-size: 17px;
+            line-height: 1.5;
             color: #E2E8F0;
             max-width: 480px;
+            margin-top: auto;
+            margin-bottom: 15px;
+            background: rgba(15, 20, 28, 0.6);
+            padding: 15px;
+            border-radius: 10px;
         }
 
         /* Второй блок (таймер и форма) */
