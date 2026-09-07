@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владимир & Лилия — 10.10.2026</title>
-    <!-- Подключаем красивый рукописный шрифт для имен и Cormorant для текста -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -51,20 +50,31 @@
             background: rgba(15, 20, 28, 0.75);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 24px;
+            justify-content: flex-start;
+            padding: 28px 24px;
             text-align: center;
         }
 
-        /* 1. Блок имен (крупный красивый рукописный шрифт) */
+        /* 1. Блок имен в две строчки со смещением */
         .block-names {
             font-family: 'Great Vibes', cursive;
-            font-size: 52px;
+            font-size: 48px;
             color: #FCEFEF;
-            line-height: 1.1;
-            margin-bottom: 8px;
+            line-height: 1.05;
+            margin-bottom: 6px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            width: 100%;
+        }
+
+        .name-line-1 {
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        .name-line-2 {
+            text-align: right;
+            padding-right: 5px;
+            margin-top: -10px;
         }
 
         /* 2. Блок «наконец-то женятся» */
@@ -74,12 +84,12 @@
             text-transform: uppercase;
             color: var(--pink);
             font-weight: 600;
-            margin-bottom: 35px;
+            margin: 15px 0 28px 0;
         }
 
         /* 3. Блок даты и адреса */
         .block-datetime {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .event-date {
@@ -96,13 +106,14 @@
             letter-spacing: 0.5px;
         }
 
-        /* 4. Блок текста (поднят выше, аккуратные отступы) */
+        /* 4. Блок текста */
         .block-text {
             font-family: 'Cormorant Garamond', serif;
             font-size: 16px;
             line-height: 1.5;
             color: #E2E8F0;
             max-width: 360px;
+            margin: 0 auto;
         }
 
         /* Второй блок (таймер и форма) */
@@ -260,13 +271,16 @@
 </head>
 <body>
 
-    <!-- Первый экран: Карточка с четкой структурой -->
+    <!-- Первый экран: Карточка -->
     <div class="invitation-card">
         <img src="https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg" alt="Владимир и Лилия" class="card-img">
         <div class="card-overlay">
             
-            <!-- 1. Блок: Имена (крупно и красиво) -->
-            <div class="block-names">Владимир и Лилия</div>
+            <!-- 1. Блок: Имена в две строчки со смещением -->
+            <div class="block-names">
+                <div class="name-line-1">Владимир и</div>
+                <div class="name-line-2">Лилия</div>
+            </div>
 
             <!-- 2. Блок: Наконец-то женятся -->
             <div class="block-status">Наконец-то женятся!</div>
@@ -277,7 +291,7 @@
                 <div class="event-place">Нарва, Kangelaste 10а - 148</div>
             </div>
 
-            <!-- 4. Блок: Текст-приглашение (поднят выше) -->
+            <!-- 4. Блок: Текст-приглашение -->
             <div class="block-text">
                 Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного и стандартного торжества, но нам невероятно важно провести этот день в окружении дорогих нам людей, с которыми тепло, уютно и радостно 🥰
             </div>
