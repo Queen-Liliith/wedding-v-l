@@ -83,7 +83,7 @@
             margin-top: -20px;
         }
 
-        /* Дата и место (можно двигать отступом выше-ниже) */
+        /* Дата и место */
         .block-datetime {
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -91,7 +91,7 @@
             border-radius: 10px;
             width: 100%;
             max-width: 420px;
-            margin-top: -10px; /* Подняли чуть выше */
+            margin-top: -10px;
         }
 
         .event-date {
@@ -120,10 +120,163 @@
             max-width: 480px;
             margin-bottom: 10px;
         }
+
+        /* Второй блок (таймер, поцелуи и форма) */
+        .content-card {
+            width: 100%;
+            max-width: 620px;
+            background-color: #1F2937;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .content-inner {
+            padding: 40px 35px;
+            text-align: center;
+        }
+
+        /* Таймер */
+        .countdown-container {
+            margin-bottom: 32px;
+        }
+        .countdown-title {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        .countdown-box {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 12px 8px;
+            border-radius: 8px;
+            min-width: 65px;
+            text-align: center;
+        }
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: var(--pink);
+            font-weight: 500;
+        }
+        .countdown-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* Блок про поцелуи («Горько») */
+        .note-box {
+            background: rgba(212, 131, 152, 0.1);
+            border-left: 3px solid var(--pink);
+            padding: 18px 20px;
+            margin: 28px 0;
+            text-align: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            line-height: 1.5;
+            color: #FCEFEF;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Форма RSVP */
+        .rsvp-section {
+            margin-top: 28px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+        }
+
+        .rsvp-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .rsvp-subtitle {
+            font-size: 12px;
+            color: var(--pink);
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+        }
+
+        .form-group { margin-bottom: 18px; }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            outline: none;
+        }
+        .form-control:focus { border-color: var(--pink); background: rgba(0,0,0,0.4); }
+        .form-control::placeholder { color: rgba(255,255,255,0.4); }
+
+        .radio-group { display: flex; gap: 25px; margin-top: 10px; }
+        .radio-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 15px; color: #FFFFFF; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--pink);
+            color: #1A212D;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: opacity 0.3s;
+        }
+        .submit-btn:hover { opacity: 0.9; }
+
+        .success-msg {
+            display: none;
+            background: rgba(46, 125, 50, 0.4);
+            border: 1px solid #2E7D32;
+            color: #A5D6A7;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Первый блок: Карточка с фоном -->
     <div class="invitation-card">
         <div class="card-overlay">
             
@@ -146,5 +299,106 @@
         </div>
     </div>
 
+    <!-- Второй блок: Таймер, Горько и Форма -->
+    <div class="content-card">
+        <div class="content-inner">
+            
+            <div class="countdown-container">
+                <div class="countdown-title">До нашей встречи осталось</div>
+                <div class="countdown">
+                    <div class="countdown-box"><div class="countdown-number" id="days">00</div><div class="countdown-label">дней</div></div>
+                    <div class="countdown-box"><div class="countdown-number" id="hours">00</div><div class="countdown-label">часов</div></div>
+                    <div class="countdown-box"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">минут</div></div>
+                    <div class="countdown-box"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">секунд</div></div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                Будем благодарны, если вы воздержитесь от криков «Горько» на празднике, ведь поцелуй — это знак выражения чувств, он не может быть по заказу ☺️
+            </div>
+
+            <div class="rsvp-section">
+                <div class="rsvp-title">Подтверждение присутствия</div>
+                <div class="rsvp-subtitle">Пожалуйста, сообщите нам о своем решении</div>
+                
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="name">Ваше Имя</label>
+                        <input type="text" id="name" name="name" class="form-control" required placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Сможете ли вы прийти?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="Буду с удовольствием!" required> С удовольствием
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="К сожалению, не смогу"> Не смогу
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wish">Пожелания или комментарий</label>
+                        <input type="text" id="wish" name="wish" class="form-control" placeholder="Пара слов для нас">
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
+                </form>
+                <div id="successMsg" class="success-msg">Спасибо! Ваш ответ успешно отправлен. Ждем вас! 💕</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const weddingDate = new Date("2026-10-10T17:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            if (diff > 0) {
+                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }, 1000);
+
+        const TELEGRAM_BOT_TOKEN = "8939259047:AAFJNTEXXH57OUwqYmEKytGTm_8w2kyokWQ"; 
+        const CHAT_ID = "867899349";
+
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+            const wish = document.getElementById('wish').value || "Без комментариев";
+
+            const message = `💍 Новый ответ на свадьбу!\n\n👤 Имя: ${name}\n📌 Ответ: ${attendance}\n💬 Пожелание: ${wish}`;
+            
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "Отправка...";
+            btn.disabled = true;
+
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+            }).then(res => {
+                if(res.ok) {
+                    document.getElementById('rsvpForm').style.display = 'none';
+                    document.getElementById('successMsg').style.display = 'block';
+                } else {
+                    alert('Ошибка отправки. Попробуйте еще раз.');
+                    btn.innerText = "Отправить ответ";
+                    btn.disabled = false;
+                }
+            }).catch(() => {
+                alert('Ошибка сети.');
+                btn.innerText = "Отправить ответ";
+                btn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
