@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владимир & Лилия — 10.10.2026</title>
+    <!-- Подключаем красивый рукописный шрифт для имен и Cormorant для текста -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,18 +23,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 10px;
+            padding: 20px 15px;
         }
 
-        /* Главная карточка-приглашение */
+        /* Главная карточка-приглашение (увеличили ширину для лучшего заполнения экрана) */
         .invitation-card {
             width: 100%;
-            max-width: 440px;
+            max-width: 520px;
             border-radius: 16px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             overflow: hidden;
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             background: #0F141C;
         }
@@ -50,122 +51,110 @@
             background: rgba(15, 20, 28, 0.75);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            padding: 20px 20px; /* Уменьшили верхний отступ, чтобы убрать пустоту */
+            justify-content: center;
+            align-items: center;
+            padding: 35px 28px;
             text-align: center;
         }
 
-        /* Крупные имена в две строчки со смещением */
+        /* 1. Блок: Имена (крупно и красиво) */
         .block-names {
             font-family: 'Great Vibes', cursive;
             font-size: 58px;
             color: #FCEFEF;
-            line-height: 1.0;
+            line-height: 1.1;
             margin-bottom: 10px;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-            width: 100%;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .name-line-1 {
-            text-align: left;
-            padding-left: 10px;
-        }
-
-        .name-line-2 {
-            text-align: right;
-            padding-right: 10px;
-            margin-top: -12px;
-        }
-
-        /* Блок «наконец-то женятся» */
+        /* 2. Блок «наконец-то женятся» */
         .block-status {
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--pink);
             font-weight: 600;
-            margin: 10px 0 24px 0;
+            margin-bottom: 35px;
         }
 
-        /* Блок даты и адреса */
+        /* 3. Блок даты и адреса */
         .block-datetime {
-            margin-bottom: 22px;
+            margin-bottom: 30px;
         }
 
         .event-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
+            font-size: 22px;
             color: #FCEFEF;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .event-place {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-muted);
             line-height: 1.4;
             letter-spacing: 0.5px;
         }
 
-        /* Текст-приглашение */
+        /* 4. Блок текста */
         .block-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
-            line-height: 1.45;
+            font-size: 17px;
+            line-height: 1.5;
             color: #E2E8F0;
-            max-width: 360px;
-            margin: 0 auto;
+            max-width: 420px;
         }
 
         /* Второй блок (таймер и форма) */
         .content-card {
             width: 100%;
-            max-width: 440px;
+            max-width: 520px;
             background-color: #1F2937;
             border-radius: 16px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             overflow: hidden;
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .content-inner {
-            padding: 30px 18px;
+            padding: 35px 24px;
             text-align: center;
         }
 
         /* Таймер */
         .countdown-container {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
         .countdown-title {
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
         }
         .countdown-box {
             background: rgba(0,0,0,0.25);
             border: 1px solid rgba(255,255,255,0.15);
-            padding: 8px 4px;
+            padding: 10px 6px;
             border-radius: 8px;
-            min-width: 52px;
+            min-width: 60px;
             text-align: center;
         }
         .countdown-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 19px;
+            font-size: 22px;
             color: var(--pink);
             font-weight: 500;
         }
         .countdown-label {
-            font-size: 8px;
+            font-size: 9px;
             text-transform: uppercase;
             color: var(--text-muted);
             margin-top: 2px;
@@ -175,83 +164,83 @@
         .note-box {
             background: rgba(212, 131, 152, 0.1);
             border-left: 3px solid var(--pink);
-            padding: 14px 16px;
-            margin: 20px 0;
+            padding: 16px 18px;
+            margin: 24px 0;
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
-            line-height: 1.4;
+            font-size: 16px;
+            line-height: 1.45;
             color: #FCEFEF;
             border-radius: 0 8px 8px 0;
         }
 
         /* Форма RSVP */
         .rsvp-section {
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 24px;
+            padding-top: 24px;
             border-top: 1px solid rgba(255,255,255,0.1);
             text-align: left;
         }
 
         .rsvp-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
+            font-size: 22px;
             color: #FFFFFF;
             margin-bottom: 4px;
             text-align: center;
         }
 
         .rsvp-subtitle {
-            font-size: 10px;
+            font-size: 11px;
             color: var(--pink);
             text-align: center;
             letter-spacing: 1px;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             text-transform: uppercase;
         }
 
-        .form-group { margin-bottom: 14px; }
+        .form-group { margin-bottom: 16px; }
 
         .form-group label {
             display: block;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 1px;
             color: var(--text-muted);
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             text-transform: uppercase;
         }
 
         .form-control {
             width: 100%;
-            padding: 10px 12px;
+            padding: 12px 14px;
             background: rgba(0,0,0,0.25);
             border: 1px solid rgba(255,255,255,0.15);
             border-radius: 8px;
             color: #FFFFFF;
             font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
+            font-size: 14px;
             outline: none;
         }
         .form-control:focus { border-color: var(--pink); background: rgba(0,0,0,0.4); }
         .form-control::placeholder { color: rgba(255,255,255,0.4); }
 
-        .radio-group { display: flex; gap: 15px; margin-top: 6px; }
-        .radio-label { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; color: #FFFFFF; }
+        .radio-group { display: flex; gap: 20px; margin-top: 8px; }
+        .radio-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: #FFFFFF; }
 
         .submit-btn {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background-color: var(--pink);
             color: #1A212D;
             border: none;
             border-radius: 8px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 12px;
             transition: opacity 0.3s;
         }
         .submit-btn:hover { opacity: 0.9; }
@@ -261,37 +250,34 @@
             background: rgba(46, 125, 50, 0.4);
             border: 1px solid #2E7D32;
             color: #A5D6A7;
-            padding: 12px;
+            padding: 14px;
             border-radius: 8px;
             text-align: center;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
         }
     </style>
 </head>
 <body>
 
-    <!-- Первый экран: Карточка -->
+    <!-- Первый экран: Карточка с четкой структурой -->
     <div class="invitation-card">
         <img src="https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg" alt="Владимир и Лилия" class="card-img">
         <div class="card-overlay">
             
-            <!-- Имена в две строчки со смещением (компактно сверху) -->
-            <div class="block-names">
-                <div class="name-line-1">Владимир и</div>
-                <div class="name-line-2">Лилия</div>
-            </div>
+            <!-- 1. Блок: Имена -->
+            <div class="block-names">Владимир и Лилия</div>
 
-            <!-- Блок: Наконец-то женятся -->
+            <!-- 2. Блок: Наконец-то женятся -->
             <div class="block-status">Наконец-то женятся!</div>
 
-            <!-- Блок: Дата и адрес -->
+            <!-- 3. Блок: Дата и адрес -->
             <div class="block-datetime">
                 <div class="event-date">10 октября 2026 года • 17:00</div>
                 <div class="event-place">Нарва, Kangelaste 10а - 148</div>
             </div>
 
-            <!-- Блок: Текст-приглашение -->
+            <!-- 4. Блок: Текст-приглашение -->
             <div class="block-text">
                 Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного и стандартного торжества, но нам невероятно важно провести этот день в окружении дорогих нам людей, с которыми тепло, уютно и радостно 🥰
             </div>
