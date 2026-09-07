@@ -51,57 +51,57 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 30px 20px;
+            padding: 35px 24px;
             text-align: center;
         }
 
-        /* Стиль блоков по аналогии с полиграфией */
-        .top-type {
-            font-size: 10px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            font-weight: 400;
+        /* Стильные блоки внутри карточки */
+        .header-group {
+            margin-top: 10px;
         }
 
         .main-names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 500;
-            font-style: italic;
             color: #FCEFEF;
-            line-height: 1.2;
-            margin: 6px 0;
+            line-height: 1.1;
+            margin-bottom: 8px;
         }
 
         .sub-event {
             font-size: 11px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--pink);
-            font-weight: 500;
+            font-weight: 600;
+        }
+
+        .center-group {
+            margin: auto 0;
+            padding: 10px 0;
         }
 
         .date-block {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
+            font-size: 21px;
             color: #FCEFEF;
             font-weight: 400;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .place-block {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-muted);
             line-height: 1.4;
         }
 
         .invitation-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.5;
             color: #E2E8F0;
-            padding: 0 10px;
+            margin-bottom: 10px;
         }
 
         /* Второй блок (таймер и форма) */
@@ -259,25 +259,24 @@
 </head>
 <body>
 
-    <!-- Первый экран: Карточка с красивой версткой текста -->
+    <!-- Первый экран: Карточка -->
     <div class="invitation-card">
         <img src="https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg" alt="Владимир и Лилия" class="card-img">
         <div class="card-overlay">
             
-            <!-- Блок 1: Шапка -->
-            <div>
-                <div class="top-type">Приглашение на свадьбу</div>
+            <!-- Блок 1: Имена сверху -->
+            <div class="header-group">
                 <div class="main-names">Владимир и Лилия</div>
                 <div class="sub-event">Наконец-то женятся!</div>
             </div>
 
-            <!-- Блок 2: Дата и место -->
-            <div>
+            <!-- Блок 2: Дата и место по центру -->
+            <div class="center-group">
                 <div class="date-block">10 октября 2026 года • 17:00</div>
                 <div class="place-block">Нарва, Kangelaste 10а - 148</div>
             </div>
 
-            <!-- Блок 3: Текст приглашения -->
+            <!-- Блок 3: Текст приглашения снизу -->
             <div class="invitation-text">
                 Совсем скоро состоится важное для нас событие. Мы решили отказаться от пышного и стандартного торжества, но нам невероятно важно провести этот день в окружении дорогих нам людей, с которыми тепло, уютно и радостно 🥰
             </div>
