@@ -1,11 +1,135 @@
-<div class="invitation-card">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Владимир & Лилия — 10.10.2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #D48398;
+            --text-main: #FFFFFF;
+            --text-muted: #E2E8F0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #151A23;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        /* Главная карточка с фоновой картинкой */
+        .invitation-card {
+            width: 100%;
+            max-width: 620px;
+            background-image: url('https://i.pinimg.com/736x/7c/0d/80/7c0d800e87965ad8c2accf57f0a6beab.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+            margin-bottom: 28px;
+        }
+
+        .card-overlay {
+            background: rgba(15, 20, 28, 0.65);
+            width: 100%;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 800px;
+            justify-content: space-between;
+        }
+
+        /* Настройка имен: Владимир сверху, Лилия ниже */
+        .names-container {
+            font-family: 'Great Vibes', cursive;
+            color: #FCEFEF;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            line-height: 0.8;
+            width: 100%;
+        }
+
+        .name-vladimir {
+            font-size: 56px;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .name-and-lilia {
+            font-size: 56px;
+            text-align: right;
+            padding-right: 20px;
+            margin-top: -10px;
+        }
+
+        /* Статус */
+        .block-status {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--pink);
+            font-weight: 600;
+            margin-top: -20px;
+        }
+
+        /* Дата и место (можно двигать отступом выше-ниже) */
+        .block-datetime {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 14px 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 420px;
+            margin-top: -10px; /* Подняли чуть выше */
+        }
+
+        .event-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            color: #FCEFEF;
+            margin-bottom: 4px;
+        }
+
+        .event-place {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Текст внизу */
+        .block-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            line-height: 1.5;
+            color: #E2E8F0;
+            background: rgba(15, 20, 28, 0.75);
+            padding: 18px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 480px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
         <div class="card-overlay">
             
-            <!-- Имена построчно для точной настройки -->
             <div class="names-container">
                 <div class="name-vladimir">Владимир</div>
-                <div class="name-and">и</div>
-                <div class="name-lilia">Лилия</div>
+                <div class="name-and-lilia">и Лилия</div>
             </div>
             
             <div class="block-status">Наконец-то женятся!</div>
@@ -21,3 +145,6 @@
 
         </div>
     </div>
+
+</body>
+</html>
